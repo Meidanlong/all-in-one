@@ -1,6 +1,8 @@
 # Java常用技术 All In One 
 
+## 技术模块
 
+### 消息队列
 [RabbitMQ](https://github.com/Meidanlong/all-in-one/tree/master/rabbitmq)
 
 ---
@@ -15,6 +17,6 @@
 
 ## 与我联系
 
-扫描二维码 或 微信搜索**kill-bat**
+扫描二维码 或 微信搜索 **kill-bat**
 
 邮箱->`meidanlong@qq.com`
