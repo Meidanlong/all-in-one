@@ -23,12 +23,15 @@ public class RabbitmqApplicationTests {
 
     @Test
     public void testSend1() throws Exception {
-        Order order = new Order();
-        order.setId("2019082700000000000000000000001");
-        order.setContent("测试订单1");
-        order.setMessageId(System.currentTimeMillis()
-                +"$"+ UUID.randomUUID());
-        this.orderSender.send(order);
+        for(int i=0; i<100; i++){
+            Order order = new Order();
+            order.setId("201908270000000000000000000000"+i);
+            order.setContent("测试订单"+i);
+            order.setMessageId(System.currentTimeMillis()
+                    +"$"+ UUID.randomUUID());
+            this.orderSender.send(order);
+        }
+
     }
 
 }

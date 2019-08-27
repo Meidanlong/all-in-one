@@ -26,9 +26,7 @@ public class OrderReceiver {
         //消费者操作
 
 //        Order order = (Order) message;
-        System.out.println("------------------收到消息，开始消费---------------");
-
-        System.out.println("订单ID: "+order.getId());
+        System.out.println("--收到消息，开始消费 -> 订单实体："+order.getContent()+", 订单ID: "+order.getId());
 
         Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
 
