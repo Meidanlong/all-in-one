@@ -2,6 +2,8 @@
 
 ## 技术模块
 
+### [LeetCode刷题日记](https://github.com/Meidanlong/all-in-one/tree/master/leetcode)
+
 ### Java基础
 [HashMap]()
 
@@ -25,7 +27,6 @@
 
 ### Scala基础
 
-### 
 ---
 
 ## 博客
