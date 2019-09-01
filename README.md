@@ -1,10 +1,31 @@
-# Java常用技术 All In One 
+# 常用技术 All In One 
 
 ## 技术模块
+
+### Java基础
+[HashMap]()
+
+[Java I/O]()
 
 ### 消息队列
 [RabbitMQ](https://github.com/Meidanlong/all-in-one/tree/master/rabbitmq)
 
+### I/O
+[Netty](https://github.com/Meidanlong/all-in-one/tree/master/netty)
+
+### 缓存
+[Redis]()
+
+[ElasticSearch]()
+
+[MongoDB]()
+
+### 分布式
+[Dubbo]()
+
+### Scala基础
+
+### 
 ---
 
 ## 博客
