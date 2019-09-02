@@ -4,7 +4,7 @@ package com.meidl.leetcode.arrary;
 import java.util.HashMap;
 
 /**
- * 两个数组的交集 II
+ * 350 两个数组的交集 II
  *
  *
  *给定两个数组，编写一个函数来计算它们的交集。
