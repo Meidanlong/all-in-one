@@ -3,7 +3,7 @@ package com.meidl.leetcode.linkedList;
 import java.util.Stack;
 
 /**
- * 回文链表
+ * 234 回文链表
  *
  * 请判断一个链表是否为回文链表。
  *
