@@ -2,7 +2,7 @@ package com.meidl.leetcode.linkedList;
 
 
 /**
- * 反转链表
+ * 206 反转链表
  *
  * 反转一个单链表。
  *
