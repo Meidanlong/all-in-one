@@ -2,7 +2,7 @@ package com.meidl.leetcode.string;
 
 
 /**
- * 实现strStr()
+ * 28 实现strStr()
  *
  *
  * 实现 strStr() 函数。
