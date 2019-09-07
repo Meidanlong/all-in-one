@@ -46,4 +46,4 @@
 
 扫描二维码 或 微信搜索 **kill-bat**
 
-邮箱->`meidanlong@126.com`
+邮箱->`meidanlong@gmail.com`
