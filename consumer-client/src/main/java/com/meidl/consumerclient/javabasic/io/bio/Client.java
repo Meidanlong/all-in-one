@@ -1,4 +1,4 @@
-package com.meidl.javabasic.io.bio;
+package com.meidl.consumerclient.javabasic.io.bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
