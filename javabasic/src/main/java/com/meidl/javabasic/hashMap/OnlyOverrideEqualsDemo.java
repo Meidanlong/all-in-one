@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import static java.util.Objects.hash;
 
-public  class OnlyOverrideEquals {
+public  class OnlyOverrideEqualsDemo {
     private static class Person{
         int id;
         String name;
