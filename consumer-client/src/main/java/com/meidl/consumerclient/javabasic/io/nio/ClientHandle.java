@@ -1,4 +1,4 @@
-package com.meidl.javabasic.io.nio;
+package com.meidl.consumerclient.javabasic.io.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

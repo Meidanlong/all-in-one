@@ -1,4 +1,4 @@
-package com.meidl.javabasic.io.nio;
+package com.meidl.consumerclient.javabasic.io.nio;
 
 public class Client {
     private static String DEFAULT_HOST = "127.0.0.1";
