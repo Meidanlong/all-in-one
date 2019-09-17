@@ -91,27 +91,6 @@ public class IsValidBSTSolution {
         return true;
     }
 
-    public boolean isValidBST3(TreeNode root) {
-        Stack<TreeNode> stack = new Stack();
-        double inorder = - Double.MAX_VALUE;
-
-        while (!stack.isEmpty() || root != null) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-            // If next element in inorder traversal
-            // is smaller than the previous one
-            // that's not BST.
-            if (root.val <= inorder) return false;
-            inorder = root.val;
-            root = root.right;
-        }
-        return true;
-    }
-
-
     public static void main(String[] args) {
         TreeNode t = new TreeNode(10);
         t.left = new TreeNode(5);
