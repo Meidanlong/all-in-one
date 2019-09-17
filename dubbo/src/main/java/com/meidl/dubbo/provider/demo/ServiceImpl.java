@@ -12,6 +12,7 @@ public class ServiceImpl implements ServiceAPI {
     @Override
     public String sendMessage(String message) {
         String msg = "provider send message is "+message;
+        System.out.println(msg);
         return msg;
     }
 }
