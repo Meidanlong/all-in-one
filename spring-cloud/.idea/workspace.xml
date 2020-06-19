@@ -49,8 +49,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7857a0b-6f05-45d1-9e32-7e11c0227eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-provider/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/EurekaProviderApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/java/com/aio/springcloud/EurekaConsumerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/java/com/aio/springcloud/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -129,7 +133,33 @@
       <command value="mvn clean install -U" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.EurekaConsumerApplication">
+    <configuration name="EurekaConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eureka-consumer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aio.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aio.springcloud.EurekaConsumerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaProviderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eureka-provider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aio.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aio.springcloud.EurekaProviderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="eureka-server" />
       <extension name="coverage">
@@ -145,6 +175,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.EurekaProviderApplication" />
+        <item itemvalue="Spring Boot.EurekaConsumerApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
     </recent_temporary>
@@ -166,7 +198,9 @@
       <workItem from="1592281849961" duration="3639000" />
       <workItem from="1592285843331" duration="3444000" />
       <workItem from="1592302568487" duration="421000" />
-      <workItem from="1592448494930" duration="3147000" />
+      <workItem from="1592448494930" duration="4125000" />
+      <workItem from="1592530909285" duration="10000" />
+      <workItem from="1592538412793" duration="3848000" />
     </task>
     <servers />
   </component>
@@ -189,42 +223,42 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="530" y="245" key="#Inspections" timestamp="1592453188434">
+    <state x="530" y="245" key="#Inspections" timestamp="1592543038805">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="530" y="245" key="#Inspections/0.0.1792.1120@0.0.1792.1120" timestamp="1592453188434" />
-    <state width="1792" height="459" key="GridCell.Tab.0.bottom" timestamp="1592453079743">
+    <state x="530" y="245" key="#Inspections/0.0.1792.1120@0.0.1792.1120" timestamp="1592543038805" />
+    <state width="1792" height="459" key="GridCell.Tab.0.bottom" timestamp="1592547923561">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079743" />
-    <state width="1792" height="459" key="GridCell.Tab.0.center" timestamp="1592453079742">
+    <state width="1792" height="459" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923561" />
+    <state width="1792" height="459" key="GridCell.Tab.0.center" timestamp="1592547923560">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079742" />
-    <state width="1792" height="459" key="GridCell.Tab.0.left" timestamp="1592453079742">
+    <state width="1792" height="459" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923560" />
+    <state width="1792" height="459" key="GridCell.Tab.0.left" timestamp="1592547923559">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079742" />
-    <state width="1792" height="459" key="GridCell.Tab.0.right" timestamp="1592453079743">
+    <state width="1792" height="459" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923559" />
+    <state width="1792" height="459" key="GridCell.Tab.0.right" timestamp="1592547923561">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079743" />
-    <state width="1792" height="459" key="GridCell.Tab.1.bottom" timestamp="1592453079745">
+    <state width="1792" height="459" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923561" />
+    <state width="1792" height="459" key="GridCell.Tab.1.bottom" timestamp="1592547923563">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079745" />
-    <state width="1792" height="459" key="GridCell.Tab.1.center" timestamp="1592453079744">
+    <state width="1792" height="459" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923563" />
+    <state width="1792" height="459" key="GridCell.Tab.1.center" timestamp="1592547923562">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079744" />
-    <state width="1792" height="459" key="GridCell.Tab.1.left" timestamp="1592453079744">
+    <state width="1792" height="459" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923562" />
+    <state width="1792" height="459" key="GridCell.Tab.1.left" timestamp="1592547923562">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079744" />
-    <state width="1792" height="459" key="GridCell.Tab.1.right" timestamp="1592453079745">
+    <state width="1792" height="459" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923562" />
+    <state width="1792" height="459" key="GridCell.Tab.1.right" timestamp="1592547923563">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592453079745" />
+    <state width="1792" height="459" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923563" />
     <state width="1792" height="420" key="GridCell.Tab.2.bottom" timestamp="1592285760948">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -241,10 +275,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1792" height="420" key="GridCell.Tab.2.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592285760948" />
-    <state x="397" y="199" key="SettingsEditor" timestamp="1592288652355">
+    <state x="397" y="199" key="SettingsEditor" timestamp="1592541600854">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1592288652355" />
+    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1592541600854" />
     <state x="597" y="315" width="598" height="490" key="find.popup" timestamp="1592284954555">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -253,10 +287,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="769" height="428" key="javadoc.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1592289391185" />
-    <state x="264" y="223" key="new project wizard" timestamp="1592452810141">
+    <state x="264" y="223" key="new project wizard" timestamp="1592541426582">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="264" y="223" key="new project wizard/0.0.1792.1120@0.0.1792.1120" timestamp="1592452810141" />
+    <state x="264" y="223" key="new project wizard/0.0.1792.1120@0.0.1792.1120" timestamp="1592541426582" />
     <state x="561" y="265" width="670" height="675" key="run.anything.popup" timestamp="1592288659837">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

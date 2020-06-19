@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-provider" />
         <module name="eureka-server" />
+        <module name="eureka-consumer" />
       </profile>
     </annotationProcessing>
   </component>

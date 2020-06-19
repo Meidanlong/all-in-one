@@ -33,5 +33,6 @@
       <option name="myAdditionalJavadocTags" value="date" />
     </inspection_tool>
     <inspection_tool class="MavenModelInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MybatisMapperXmlInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
 </component>
