@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.meidl</groupId>
-    <artifactId>dubbo</artifactId>
+    <artifactId>dubbo-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dubbo</name>
     <description>Demo project for dubbo</description>
