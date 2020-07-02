@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:netty" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:zookeeper" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e02184f0-83a0-4e44-a9b9-30113dfefebc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/src/main/java/com/meidl/dubboconsumer/DemoConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/src/main/java/com/meidl/dubboconsumer/DubboconsumerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/src/main/java/com/meidl/dubboconsumer/controller/DubboController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-consumer/src/test/java/com/meidl/dubboconsumer/DubboconsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/meidl/dubbo/DubboApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/meidl/dubbo/provider/demo/ServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo-server/src/test/java/com/meidl/dubbo/DubboApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubboconsumer/DemoConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubboconsumer/DubboconsumerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubboconsumer/controller/DubboController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/test/java/com/meidl/dubboconsumer/DubboconsumerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/ConsumerClientApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/controller/DubboController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/controller/NettyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/dubbo/consumer/DemoConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/bio/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/bio/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/nio/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/nio/ClientHandle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/nio/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/rabbitmq/consumer/OrderReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/rabbitmq/entity/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/resources/templates/hellonetty.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/test/java/com/meidl/consumerclient/ConsumerClientApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meidl/dubbo/DubboApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meidl/dubbo/provider/demo/ServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meidl/dubbo/DubboApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-cloud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-cloud/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$MAVEN_REPOSITORY$" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1e4VPocS20oFGVGhOOuwJwngwVK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e02184f0-83a0-4e44-a9b9-30113dfefebc" name="Default Changelist" comment="" />
+      <created>1593580830078</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593580830078</updated>
+      <workItem from="1593580837824" duration="1260000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="397" y="199" key="SettingsEditor" timestamp="1593581039576">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1593581039576" />
+  </component>
+</project>
