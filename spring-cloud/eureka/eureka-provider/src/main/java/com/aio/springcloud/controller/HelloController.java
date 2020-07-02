@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author meidanlong
  */
-@RestController("/hello/")
+@RestController("/hello")
 public class HelloController {
 
     @Value("${server.port}")

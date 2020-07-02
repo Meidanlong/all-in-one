@@ -1,18 +1,19 @@
 package com.aio.springcloud;
 
-import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author meidanlong
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class EurekaProviderApplication {
+@EnableFeignClients
+public class FeignConsumerApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(EurekaProviderApplication.class).web(WebApplicationType.SERVLET).run(args);
+        SpringApplication.run(FeignConsumerApplication.class,args);
     }
 }

@@ -13,6 +13,7 @@
         <module name="eureka-consumer" />
         <module name="eureka-provider" />
         <module name="eureka-server-peer2" />
+        <module name="feign-consumer" />
       </profile>
     </annotationProcessing>
   </component>

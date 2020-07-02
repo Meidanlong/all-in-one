@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * @author meidanlong
  */
 @Slf4j
-@RestController("/hello/")
+@RestController("/hello")
 public class HelloController {
 
     /**
