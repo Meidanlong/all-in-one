@@ -49,12 +49,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7857a0b-6f05-45d1-9e32-7e11c0227eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feign/feign-consumer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feign/feign-consumer/src/main/java/com/aio/springcloud/FeignConsumerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feign/feign-consumer/src/main/java/com/aio/springcloud/controller/HelloContorller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feign/feign-consumer/src/main/java/com/aio/springcloud/feign/IEurekaProviderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feign/feign-consumer/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
@@ -104,14 +98,6 @@
       <change beforePath="$PROJECT_DIR$/../dubbo/src/main/java/com/meidl/dubbo/provider/demo/ServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../dubbo/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../dubbo/src/test/java/com/meidl/dubbo/DubboApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/java/com/aio/springcloud/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/java/com/aio/springcloud/controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/EurekaProviderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/EurekaProviderApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/eureka-provider/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/eureka-provider/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-provider/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +279,7 @@
       <workItem from="1592448494930" duration="4125000" />
       <workItem from="1592530909285" duration="10000" />
       <workItem from="1592538412793" duration="3945000" />
-      <workItem from="1593649865992" duration="17070000" />
+      <workItem from="1593649865992" duration="17391000" />
     </task>
     <servers />
   </component>
@@ -392,10 +378,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1792" height="420" key="GridCell.Tab.2.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593677989602" />
-    <state x="397" y="199" key="SettingsEditor" timestamp="1593675679398">
+    <state x="397" y="199" key="SettingsEditor" timestamp="1593679216290">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1593675679398" />
+    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1593679216290" />
     <state x="626" y="310" width="549" height="524" key="StructurePopup" timestamp="1593676702195">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
