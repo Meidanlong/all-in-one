@@ -2,8 +2,9 @@ spring:
   application:
     name: eureka-provider
 server:
-  port: 10001
+  port: 10003
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:21001/eureka/,http://peer2:21002/eureka/
+      defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://peer1:21001/eureka/,http://peer2:21002/eureka/
