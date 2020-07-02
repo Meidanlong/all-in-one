@@ -8,13 +8,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
+        <module name="feign-client" />
         <module name="eureka-server-peer" />
         <module name="ribbon-consumer" />
+        <module name="feign-client-intf" />
         <module name="eureka-consumer" />
         <module name="eureka-provider" />
         <module name="eureka-server-peer2" />
+        <module name="feign-consumer-pro" />
         <module name="feign-consumer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hystrix-consumer" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
