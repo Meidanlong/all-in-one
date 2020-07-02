@@ -17,6 +17,9 @@
         <module>ribbon/ribbon-consumer</module>
         <module>feign/feign-consumer</module>
         <module>hystrix/hystrix-consumer</module>
+        <module>feign/feign-client-intf</module>
+        <module>feign/feign-client</module>
+        <module>feign/feign-consumer-pro</module>
     </modules>
 
 
