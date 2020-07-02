@@ -49,15 +49,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7857a0b-6f05-45d1-9e32-7e11c0227eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/java/com/aio/springcloud/EurekaConsumerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/java/com/aio/springcloud/controller/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-consumer/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/java/com/aio/springcloud/controller/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-server-peer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-server-peer/src/main/java/com/aio/springcloud/EurekaServerPeerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-server-peer/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-server-peer2/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-server-peer2/src/main/java/com/aio/springcloud/EurekaServerPeer2Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka/eureka-server-peer2/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ribbon/ribbon-consumer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubboconsumer/DemoConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubboconsumer/DubboconsumerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/java/com/meidl/dubboconsumer/controller/DubboController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/dubboconsumer/src/test/java/com/meidl/dubboconsumer/DubboconsumerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/ConsumerClientApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/controller/DubboController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/controller/NettyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/dubbo/consumer/DemoConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/bio/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/bio/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/nio/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/nio/ClientHandle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/javabasic/io/nio/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/consumerclient/rabbitmq/consumer/OrderReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/java/com/meidl/rabbitmq/entity/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/main/resources/templates/hellonetty.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumer-client/src/test/java/com/meidl/consumerclient/ConsumerClientApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/src/main/java/com/meidl/dubbo/DubboApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/src/main/java/com/meidl/dubbo/api/ServiceAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/src/main/java/com/meidl/dubbo/provider/demo/ServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dubbo/src/test/java/com/meidl/dubbo/DubboApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/eureka-provider/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-provider/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/eureka-provider/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/eureka-provider/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,10 +173,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.aio.springcloud" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -173,11 +229,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EurekaServerPeer2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eureka-server-peer2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aio.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aio.springcloud.EurekaServerPeer2Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerPeerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eureka-server-peer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aio.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aio.springcloud.EurekaServerPeerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.EurekaProviderApplication" />
         <item itemvalue="Spring Boot.EurekaConsumerApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.EurekaProviderApplication" />
+        <item itemvalue="Spring Boot.EurekaServerPeerApplication" />
+        <item itemvalue="Spring Boot.EurekaServerPeer2Application" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +284,8 @@
       <workItem from="1592302568487" duration="421000" />
       <workItem from="1592448494930" duration="4125000" />
       <workItem from="1592530909285" duration="10000" />
-      <workItem from="1592538412793" duration="3848000" />
+      <workItem from="1592538412793" duration="3945000" />
+      <workItem from="1593649865992" duration="6638000" />
     </task>
     <servers />
   </component>
@@ -227,73 +312,194 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="530" y="245" key="#Inspections/0.0.1792.1120@0.0.1792.1120" timestamp="1592543038805" />
-    <state width="1792" height="459" key="GridCell.Tab.0.bottom" timestamp="1592547923561">
+    <state x="384" y="141" key="#Project_Structure" timestamp="1593650334184">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923561" />
-    <state width="1792" height="459" key="GridCell.Tab.0.center" timestamp="1592547923560">
+    <state x="384" y="141" key="#Project_Structure/0.0.1792.1120@0.0.1792.1120" timestamp="1593650334184" />
+    <state x="464" y="231" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1593662923459">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923560" />
-    <state width="1792" height="459" key="GridCell.Tab.0.left" timestamp="1592547923559">
+    <state x="464" y="231" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1593662923459" />
+    <state x="634" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593650320203">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923559" />
-    <state width="1792" height="459" key="GridCell.Tab.0.right" timestamp="1592547923561">
+    <state x="634" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1593650320203" />
+    <state x="659" y="270" key="#xdebugger.evaluate" timestamp="1593660735537">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923561" />
-    <state width="1792" height="459" key="GridCell.Tab.1.bottom" timestamp="1592547923563">
+    <state x="659" y="270" key="#xdebugger.evaluate/0.0.1792.1120@0.0.1792.1120" timestamp="1593660735537" />
+    <state width="496" height="466" key="DebuggerActiveHint" timestamp="1593659851901">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923563" />
-    <state width="1792" height="459" key="GridCell.Tab.1.center" timestamp="1592547923562">
+    <state width="496" height="466" key="DebuggerActiveHint/0.0.1792.1120@0.0.1792.1120" timestamp="1593659851901" />
+    <state width="1792" height="420" key="GridCell.Tab.0.bottom" timestamp="1593661961034">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923562" />
-    <state width="1792" height="459" key="GridCell.Tab.1.left" timestamp="1592547923562">
+    <state width="1792" height="420" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961034" />
+    <state width="1792" height="420" key="GridCell.Tab.0.center" timestamp="1593661961033">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923562" />
-    <state width="1792" height="459" key="GridCell.Tab.1.right" timestamp="1592547923563">
+    <state width="1792" height="420" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961033" />
+    <state width="1792" height="420" key="GridCell.Tab.0.left" timestamp="1593661961032">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="459" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592547923563" />
-    <state width="1792" height="420" key="GridCell.Tab.2.bottom" timestamp="1592285760948">
+    <state width="1792" height="420" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961032" />
+    <state width="1792" height="420" key="GridCell.Tab.0.right" timestamp="1593661961033">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="420" key="GridCell.Tab.2.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592285760948" />
-    <state width="1792" height="420" key="GridCell.Tab.2.center" timestamp="1592285760948">
+    <state width="1792" height="420" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961033" />
+    <state width="1792" height="420" key="GridCell.Tab.1.bottom" timestamp="1593661961035">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="420" key="GridCell.Tab.2.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592285760948" />
-    <state width="1792" height="420" key="GridCell.Tab.2.left" timestamp="1592285760947">
+    <state width="1792" height="420" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961035" />
+    <state width="1792" height="420" key="GridCell.Tab.1.center" timestamp="1593661961035">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="420" key="GridCell.Tab.2.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592285760947" />
-    <state width="1792" height="420" key="GridCell.Tab.2.right" timestamp="1592285760948">
+    <state width="1792" height="420" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961035" />
+    <state width="1792" height="420" key="GridCell.Tab.1.left" timestamp="1593661961034">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1792" height="420" key="GridCell.Tab.2.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592285760948" />
-    <state x="397" y="199" key="SettingsEditor" timestamp="1592541600854">
+    <state width="1792" height="420" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961034" />
+    <state width="1792" height="420" key="GridCell.Tab.1.right" timestamp="1593661961035">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1592541600854" />
-    <state x="597" y="315" width="598" height="490" key="find.popup" timestamp="1592284954555">
+    <state width="1792" height="420" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961035" />
+    <state width="1792" height="420" key="GridCell.Tab.2.bottom" timestamp="1593661961037">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="597" y="315" width="598" height="490" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1592284954555" />
+    <state width="1792" height="420" key="GridCell.Tab.2.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961037" />
+    <state width="1792" height="420" key="GridCell.Tab.2.center" timestamp="1593661961036">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1792" height="420" key="GridCell.Tab.2.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961036" />
+    <state width="1792" height="420" key="GridCell.Tab.2.left" timestamp="1593661961036">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1792" height="420" key="GridCell.Tab.2.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961036" />
+    <state width="1792" height="420" key="GridCell.Tab.2.right" timestamp="1593661961037">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1792" height="420" key="GridCell.Tab.2.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593661961037" />
+    <state x="397" y="199" key="SettingsEditor" timestamp="1593662192585">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1593662192585" />
+    <state x="626" y="310" width="549" height="524" key="StructurePopup" timestamp="1593662200483">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="626" y="310" width="549" height="524" key="StructurePopup/0.0.1792.1120@0.0.1792.1120" timestamp="1593662200483" />
+    <state x="684" y="481" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593661778224">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="684" y="481" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1792.1120@0.0.1792.1120" timestamp="1593661778224" />
+    <state x="597" y="315" width="598" height="490" key="find.popup" timestamp="1593662100269">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="597" y="315" width="598" height="490" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1593662100269" />
     <state width="769" height="428" key="javadoc.popup" timestamp="1592289391185">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="769" height="428" key="javadoc.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1592289391185" />
-    <state x="264" y="223" key="new project wizard" timestamp="1592541426582">
+    <state x="264" y="223" key="new project wizard" timestamp="1593666499408">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="264" y="223" key="new project wizard/0.0.1792.1120@0.0.1792.1120" timestamp="1592541426582" />
+    <state x="264" y="223" key="new project wizard/0.0.1792.1120@0.0.1792.1120" timestamp="1593666499408" />
     <state x="561" y="265" width="670" height="675" key="run.anything.popup" timestamp="1592288659837">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="561" y="265" width="670" height="675" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1592288659837" />
+    <state x="561" y="222" width="670" height="676" key="search.everywhere.popup" timestamp="1593662264297">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="222" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1593662264297" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-commons/2.1.1.RELEASE/spring-cloud-commons-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/client/discovery/EnableDiscoveryClientImportSelector.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-commons/2.1.1.RELEASE/spring-cloud-commons-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/client/discovery/EnableDiscoveryClientImportSelector.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-commons/2.1.1.RELEASE/spring-cloud-commons-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/client/serviceregistry/AbstractAutoServiceRegistration.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.1.RELEASE/spring-cloud-netflix-eureka-client-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/serviceregistry/EurekaServiceRegistry.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.1.RELEASE/spring-cloud-netflix-eureka-client-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/serviceregistry/EurekaServiceRegistry.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.1.RELEASE/spring-cloud-netflix-eureka-client-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/serviceregistry/EurekaAutoServiceRegistration.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.7.RELEASE/spring-context-5.1.7.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <line>386</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.7.RELEASE/spring-context-5.1.7.RELEASE-sources.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.7.RELEASE/spring-context-5.1.7.RELEASE-sources.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.7.RELEASE/spring-context-5.1.7.RELEASE-sources.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-commons/2.1.1.RELEASE/spring-cloud-commons-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/client/serviceregistry/AbstractAutoServiceRegistration.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE-sources.jar!/org/springframework/boot/context/config/DelegatingApplicationListener.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.1.RELEASE/spring-cloud-netflix-eureka-client-2.1.1.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/serviceregistry/EurekaServiceRegistry.java</url>
+          <line>49</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/DiscoveryClient.java</url>
+          <line>644</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/DiscoveryClient.java</url>
+          <line>825</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/shared/transport/jersey/AbstractJerseyEurekaHttpClient.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -7,9 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-provider" />
         <module name="eureka-server" />
+        <module name="eureka-server-peer" />
+        <module name="ribbon-consumer" />
         <module name="eureka-consumer" />
+        <module name="eureka-provider" />
+        <module name="eureka-server-peer2" />
       </profile>
     </annotationProcessing>
   </component>
