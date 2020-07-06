@@ -1,0 +1,3 @@
+com/aio/springcloud/feign/IEurekaProviderService.class
+com/aio/springcloud/controller/HelloContorller.class
+com/aio/springcloud/FeignConsumerApplication.class

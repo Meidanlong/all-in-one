@@ -1,0 +1,3 @@
+com/aio/springcloud/config/RibbonConfiguration.class
+com/aio/springcloud/RibbonConsumerApplication.class
+com/aio/springcloud/controller/HelloController.class
