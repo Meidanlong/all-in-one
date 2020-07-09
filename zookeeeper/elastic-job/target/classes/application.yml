@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: elastic-job
+
+regCenter:
+  serverList: localhost:2181
+  namespace: elastic-job
