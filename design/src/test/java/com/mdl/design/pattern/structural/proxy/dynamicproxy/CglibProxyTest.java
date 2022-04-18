@@ -11,12 +11,17 @@ import com.mdl.design.domain.Dog;
 class CglibProxyTest {
 
     public static void main(String[] args) {
-        CglibProxy cglibProxy = new CglibProxy(new Dog());
-        Dog dogProxy = (Dog)cglibProxy.newProxyInstance();
-        dogProxy.setName("qiuqiu");
-        dogProxy.setName("qiuqiu1");
-        dogProxy.run();
-        System.out.println(dogProxy.getName());
+//        CglibProxy cglibProxy = new CglibProxy(new Dog());
+//        Dog dogProxy = (Dog)cglibProxy.newProxyInstance();
+//        dogProxy.setName("qiuqiu");
+//        dogProxy.setName("qiuqiu1");
+//        dogProxy.run();
+//        System.out.println(dogProxy.getName());
+
+
+        DogCglibProxy dogCglibProxy = new DogCglibProxy();
+        Dog dog = dogCglibProxy.newProxyInstance();
+        dog.run();
     }
 
 }

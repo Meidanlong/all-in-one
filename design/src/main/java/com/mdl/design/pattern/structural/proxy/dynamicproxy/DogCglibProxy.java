@@ -12,20 +12,18 @@ import java.lang.reflect.Method;
  * @author: meidanlong
  * @date: 2022/4/17 6:05 PM
  */
-public class CglibProxy implements MethodInterceptor {
+public class DogCglibProxy implements MethodInterceptor {
 
     /**
      * 被代理对象
      */
-    private Object target;
+    private Dog target;
 
     /**
      * 利用构造函数设置被代理对象
-     *
-     * @param target
      */
-    public CglibProxy(Object target) {
-        this.target = target;
+    public DogCglibProxy() {
+        this.target = new Dog();
     }
 
     /**
@@ -33,7 +31,7 @@ public class CglibProxy implements MethodInterceptor {
      *
      * @return
      */
-    public Object newProxyInstance() {
+    public Dog newProxyInstance() {
         /**
          * 创建Enhancer实例
          */
@@ -49,7 +47,7 @@ public class CglibProxy implements MethodInterceptor {
         /**
          * 创建代理
          */
-        return enhancer.create();
+        return (Dog)enhancer.create();
     }
 
     @Override
@@ -57,7 +55,7 @@ public class CglibProxy implements MethodInterceptor {
         before();
         Object result = methodProxy.invokeSuper(o, objects);
         after();
-        return new Dog();
+        return "Dog run";
     }
 
     private void before(){
