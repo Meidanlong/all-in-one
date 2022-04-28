@@ -12,23 +12,22 @@ import java.util.concurrent.SynchronousQueue;
  */
 class DiyThreadPoolTest {
 
-    /**
-     * 测试:
-     * 1. 线程池的线程在阻塞等待时，会不会支援消费别的线程
-     * @param args
-     */
     public static void main(String[] args) throws InterruptedException {
+        DiyThreadPoolTest.testThreadPoolIsolation();
+    }
+
+    /**
+     * 测试线程池的线程隔离
+     */
+    public static void testThreadPoolIsolation() throws InterruptedException{
         ExecutorService executorService = DiyThreadPool.newThreadPool(8, 10, new SynchronousQueue<>());
 //        ExecutorService executorService = DiyThreadPool.newLinkedBlockingQueueThreadPool(8, 20);
         for(int i=0; i<100; i++){
             RunnableThread runnableThread = new RunnableThread(i);
             executorService.submit(runnableThread);
-            if(100 % 3 == 0){
-                runnableThread.notifyAll();
-            }
         }
         ThreadPoolUtil.shutDownExecutor(executorService);
-        Thread.sleep(10 * 1000);
+//        Thread.sleep(10 * 1000);
     }
 
     static class RunnableThread implements Runnable{
@@ -43,11 +42,7 @@ class DiyThreadPoolTest {
             while (i < 10){
                 System.out.println(Thread.currentThread().getName() + " -> " + ++i);
                 try {
-                    this.wait(10 * sleepTime);
-//                    this.notifyAll();
-//                    System.out.println(Thread.currentThread().getName() + " state: " + Thread.currentThread().getState());
-//                    Thread.sleep(10 * sleepTime);
-
+                    Thread.sleep(10 * sleepTime);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
