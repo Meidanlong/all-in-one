@@ -1,6 +1,4 @@
-package com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.util;
-
-import com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.domain.ValidateObj;
+package com.mdl.tools.validate.util;
 
 import java.lang.reflect.Field;
 

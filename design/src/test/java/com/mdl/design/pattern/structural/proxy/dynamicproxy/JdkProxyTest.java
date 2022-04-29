@@ -1,9 +1,9 @@
 package com.mdl.design.pattern.structural.proxy.dynamicproxy;
 
 
-import com.mdl.design.domain.Animal;
-import com.mdl.design.domain.Dog;
-import com.mdl.design.domain.Mammal;
+import com.mdl.common.domain.Animal;
+import com.mdl.common.domain.Dog;
+import com.mdl.common.domain.Mammal;
 
 /**
  * @description:

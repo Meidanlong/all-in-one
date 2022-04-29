@@ -20,7 +20,7 @@ class MyThreadPoolTest {
      */
     public static void testThreadPoolIsolation() throws InterruptedException{
         ExecutorService executorService = MyThreadPool.newThreadPool(8, 10, new SynchronousQueue<>());
-//        ExecutorService executorService = DiyThreadPool.newLinkedBlockingQueueThreadPool(8, 20);
+//        ExecutorService executorService = MyThreadPool.newLinkedBlockingQueueThreadPool(8, 20);
         for(int i=0; i<100; i++){
             RunnableThread runnableThread = new RunnableThread(i);
             executorService.submit(runnableThread);

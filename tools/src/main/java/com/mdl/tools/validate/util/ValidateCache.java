@@ -1,9 +1,8 @@
-package com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.util;
+package com.mdl.tools.validate.util;
 
-import com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.domain.ValidateObj;
-import com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.domain.ValidateStack;
+import com.mdl.tools.validate.domain.ValidateObj;
+import com.mdl.tools.validate.domain.ValidateStack;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;

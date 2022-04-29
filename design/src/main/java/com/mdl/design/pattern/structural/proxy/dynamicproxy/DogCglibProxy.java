@@ -1,6 +1,6 @@
 package com.mdl.design.pattern.structural.proxy.dynamicproxy;
 
-import com.mdl.design.domain.Dog;
+import com.mdl.common.domain.Dog;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

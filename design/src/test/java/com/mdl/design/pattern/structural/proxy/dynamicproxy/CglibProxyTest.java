@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.proxy.dynamicproxy;
 
 
-import com.mdl.design.domain.Dog;
+import com.mdl.common.domain.Dog;
 
 /**
  * @description:

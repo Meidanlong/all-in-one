@@ -7,15 +7,11 @@ import com.mdl.common.domain.Dog;
  * @author: meidanlong
  * @date: 2022/4/28 16:37
  */
-public class MyThreadLocal {
+public class MyStaticThreadLocal {
 
-    InheritableThreadLocal<Dog> myITL;
+    static InheritableThreadLocal<Dog> myITL = new InheritableThreadLocal<>();
 
-    public MyThreadLocal() {
-        this.myITL = new InheritableThreadLocal<>();
-    }
-
-    public Dog getMyITL(){
+    public static Dog getMyITL(){
         Dog dog = myITL.get();
         if(dog == null) {
             dog = new Dog();
@@ -23,7 +19,7 @@ public class MyThreadLocal {
         return dog;
     }
 
-    public void setMyITL(Dog dog) {
+    public static void setMyITL(Dog dog) {
         if(dog != null){
             myITL.set(dog);
         }

@@ -1,12 +1,10 @@
-package com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.util;
+package com.mdl.tools.validate.util;
 
-import com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.domain.ValidateObj;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
-import java.util.List;
 
 /**
  * @description:

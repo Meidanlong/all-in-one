@@ -1,4 +1,4 @@
-package com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.domain;
+package com.mdl.tools.validate.domain;
 
 import java.util.List;
 import java.util.Stack;

@@ -1,7 +1,16 @@
-package com.mdl.design.pattern.structural.proxy.dynamicproxy.validate.util;
+package com.mdl.tools.validate.util;
 
 /**
- * @description:
+ * @description:校验工具类
+ * 目标：打造一个对象参数校验工具
+ * 特点：
+ * 1、滞后获取被校验对象
+ * 2、简洁链式调用
+ * 3、调用层级清晰
+ * 4、校验复杂对象
+ * 5、校验异常短路后续校验
+ * 6、包装返回结果
+ *
  * @author: meidanlong
  * @date: 2022/4/17 7:53 PM
  */
