@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @author: meidanlong
  * @date: 2022/4/28 11:26
  */
-public class DiyThreadPool {
+public class MyThreadPool {
 
     public static ExecutorService newArrayBlockingQueueThreadPool(int coreSize, int maxSize, int capacity){
         ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(capacity);

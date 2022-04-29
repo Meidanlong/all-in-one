@@ -1,7 +1,6 @@
 package com.mdl.java.juc.threadpool;
 
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 
@@ -10,17 +9,17 @@ import java.util.concurrent.SynchronousQueue;
  * @author: meidanlong
  * @date: 2022/4/28 11:51
  */
-class DiyThreadPoolTest {
+class MyThreadPoolTest {
 
     public static void main(String[] args) throws InterruptedException {
-        DiyThreadPoolTest.testThreadPoolIsolation();
+        MyThreadPoolTest.testThreadPoolIsolation();
     }
 
     /**
      * 测试线程池的线程隔离
      */
     public static void testThreadPoolIsolation() throws InterruptedException{
-        ExecutorService executorService = DiyThreadPool.newThreadPool(8, 10, new SynchronousQueue<>());
+        ExecutorService executorService = MyThreadPool.newThreadPool(8, 10, new SynchronousQueue<>());
 //        ExecutorService executorService = DiyThreadPool.newLinkedBlockingQueueThreadPool(8, 20);
         for(int i=0; i<100; i++){
             RunnableThread runnableThread = new RunnableThread(i);
