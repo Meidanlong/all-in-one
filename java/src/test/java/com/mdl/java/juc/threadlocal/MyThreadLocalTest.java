@@ -11,8 +11,8 @@ import com.mdl.common.domain.Dog;
 class MyThreadLocalTest {
 
     public static void main(String[] args) throws InterruptedException {
-//        testStaticInheritableThreadLocal();
-        testInheritableThreadLocal();
+        testStaticInheritableThreadLocal();
+//        testInheritableThreadLocal();
     }
 
     /**
@@ -28,10 +28,10 @@ class MyThreadLocalTest {
         Dog dog = new Dog();
         dog.setName("球球");
         MyStaticThreadLocal.setMyITL(dog);
-        System.out.println(Thread.currentThread().getName() + " -> " + MyStaticThreadLocal.getMyITL().getName());
+        System.out.println(Thread.currentThread().getName() + Thread.currentThread().getId() + " -> " + MyStaticThreadLocal.getMyITL().getName());
         new Thread(new StaticTLSub()).start();
         Thread.sleep(1000);
-        System.out.println(Thread.currentThread().getName() + " -> " + MyStaticThreadLocal.getMyITL().getName());
+        System.out.println(Thread.currentThread().getName() + Thread.currentThread().getId()+ " -> " + MyStaticThreadLocal.getMyITL().getName());
     }
 
     /**
@@ -49,10 +49,10 @@ class MyThreadLocalTest {
         Dog dog = new Dog();
         dog.setName("球球");
         myThreadLocal.setMyITL(dog);
-        System.out.println(Thread.currentThread().getName() + " -> " + myThreadLocal.getMyITL().getName());
+        System.out.println(Thread.currentThread().getName() + Thread.currentThread().getId()+ " -> " + myThreadLocal.getMyITL().getName());
         new Thread(new StaticTLSub()).start();
         Thread.sleep(1000);
-        System.out.println(Thread.currentThread().getName() + " -> " + myThreadLocal.getMyITL().getName());
+        System.out.println(Thread.currentThread().getName() + Thread.currentThread().getId()+ " -> " + myThreadLocal.getMyITL().getName());
     }
 
 
@@ -60,8 +60,21 @@ class MyThreadLocalTest {
 
         @Override
         public void run() {
+//            notChangeObj();
+            changeObj();
+        }
+
+        private void notChangeObj(){
             System.out.println(Thread.currentThread().getName() + " -> " + MyStaticThreadLocal.getMyITL().getName());
             MyStaticThreadLocal.getMyITL().setName("圆圆");
+            System.out.println(Thread.currentThread().getName() + " -> " + MyStaticThreadLocal.getMyITL().getName());
+        }
+
+        private void changeObj(){
+            System.out.println(Thread.currentThread().getName() + " -> " + MyStaticThreadLocal.getMyITL().getName());
+            Dog subDog = new Dog();
+            subDog.setName("圆圆");
+            MyStaticThreadLocal.setMyITL(subDog);
             System.out.println(Thread.currentThread().getName() + " -> " + MyStaticThreadLocal.getMyITL().getName());
         }
     }
