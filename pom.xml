@@ -29,6 +29,11 @@
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.mdl</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -37,11 +42,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${apache.commons.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mdl</groupId>
-            <artifactId>common</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
