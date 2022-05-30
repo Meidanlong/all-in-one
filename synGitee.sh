@@ -9,4 +9,4 @@ git add .
 git commit -m 'synchronize to Gitee master'
 
 # gitee
-git push -f "git@gitee.com:meidanlong/all-in-one.git" master
+git push -f "git@gitee.com:meidanlong/all-in-one.git" master:master
