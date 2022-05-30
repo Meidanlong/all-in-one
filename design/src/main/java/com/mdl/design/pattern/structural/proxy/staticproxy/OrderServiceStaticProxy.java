@@ -6,7 +6,7 @@ import com.mdl.design.pattern.structural.proxy.OrderServiceImpl;
 import com.mdl.design.pattern.structural.proxy.db.DataSourceContextHolder;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class OrderServiceStaticProxy {
     private IOrderService iOrderService;

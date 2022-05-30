@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.bridge;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public abstract class Bank {
     protected Account account;

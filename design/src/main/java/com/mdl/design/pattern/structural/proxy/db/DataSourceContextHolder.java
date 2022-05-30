@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.proxy.db;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class DataSourceContextHolder {
     private static final ThreadLocal<String> CONTEXT_HOLDER = new ThreadLocal<String>();

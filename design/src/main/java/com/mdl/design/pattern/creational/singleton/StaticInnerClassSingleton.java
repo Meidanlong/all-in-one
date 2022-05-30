@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.creational.singleton;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class StaticInnerClassSingleton {
     private static class InnerClass{

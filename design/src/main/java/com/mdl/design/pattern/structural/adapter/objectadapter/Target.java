@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.adapter.objectadapter;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public interface Target {
     void request();

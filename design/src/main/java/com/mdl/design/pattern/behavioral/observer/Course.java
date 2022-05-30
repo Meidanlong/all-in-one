@@ -3,7 +3,7 @@ package com.mdl.design.pattern.behavioral.observer;
 import java.util.Observable;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Course extends Observable{
     private String courseName;

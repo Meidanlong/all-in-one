@@ -3,7 +3,7 @@ package com.mdl.design.pattern.behavioral.mediator;
 import java.util.Date;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class StudyGroup {
 

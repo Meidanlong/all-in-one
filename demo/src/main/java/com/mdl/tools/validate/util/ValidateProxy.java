@@ -1,10 +1,12 @@
 package com.mdl.tools.validate.util;
 
+import com.mdl.tools.validate.domain.ValidateObj;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * @description:
@@ -53,22 +55,22 @@ public class ValidateProxy implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-//        ValidateUtil vu = (ValidateUtil) this.target;
-//        try{
-//            List<ValidateObj> validateObjList = ValidateCache.peekStack();
-//            for(ValidateObj vo : validateObjList){
-//                if(!vu.getValid()){
-//                    ValidateUtil result = (ValidateUtil) methodProxy.invokeSuper(o, objects);
-//                    if(!result.getValid()){
-//                        vu.setValid(false);
-//                    }
-//                }
-//            }
-//        }catch (Exception e){
-//            vu.setValid(false);
-//        }
-//        return this.target;
+        ValidateUtil vu = (ValidateUtil) this.target;
+        try{
+            List<ValidateObj> validateObjList = ValidateCache.peekStack();
+            for(ValidateObj vo : validateObjList){
+                if(!vu.getValid()){
+                    ValidateUtil result = (ValidateUtil) methodProxy.invokeSuper(o, objects);
+                    if(!result.getValid()){
+                        vu.setValid(false);
+                    }
+                }
+            }
+        }catch (Exception e){
+            vu.setValid(false);
+        }
+        return this.target;
 //        Object result = methodProxy.invokeSuper(o, objects);
-        return new ValidateUtil();
+//        return new ValidateUtil();
     }
 }

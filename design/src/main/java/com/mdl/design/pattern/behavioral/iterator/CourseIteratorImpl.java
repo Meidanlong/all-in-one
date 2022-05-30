@@ -3,7 +3,7 @@ package com.mdl.design.pattern.behavioral.iterator;
 import java.util.List;
 
 /**
- * Created by geely.
+ * Created by meidanlong.
  */
 public class CourseIteratorImpl implements CourseIterator {
 

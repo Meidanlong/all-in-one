@@ -1,7 +1,7 @@
 package com.mdl.design.principle.singleresponsibility;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class FlyBird {
     public void mainMoveMode(String birdName){

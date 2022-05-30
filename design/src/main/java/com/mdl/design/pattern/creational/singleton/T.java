@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.creational.singleton;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class T implements Runnable {
     @Override

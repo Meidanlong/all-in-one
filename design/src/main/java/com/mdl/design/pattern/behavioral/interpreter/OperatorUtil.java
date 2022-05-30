@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.interpreter;
 
 /**
- * Created by geely.
+ * Created by meidanlong.
  */
 public class OperatorUtil {
     public static boolean isOperator(String symbol) {

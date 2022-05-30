@@ -1,7 +1,7 @@
 package com.mdl.design.principle.compositionaggregation;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class MySQLConnection extends DBConnection {
     @Override

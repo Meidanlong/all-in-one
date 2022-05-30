@@ -3,7 +3,7 @@ package com.mdl.design.pattern.behavioral.memento;
 import java.util.Stack;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class ArticleMementoManager {
 

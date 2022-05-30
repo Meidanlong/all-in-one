@@ -3,7 +3,7 @@ package com.mdl.design.pattern.behavioral.observer.guavatest;
 import com.google.common.eventbus.Subscribe;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class GuavaEvent {
     @Subscribe

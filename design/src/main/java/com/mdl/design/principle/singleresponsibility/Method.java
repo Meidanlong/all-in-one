@@ -1,7 +1,7 @@
 package com.mdl.design.principle.singleresponsibility;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Method {
     private void updateUserInfo(String userName,String address){

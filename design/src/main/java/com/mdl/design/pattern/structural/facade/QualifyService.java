@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.facade;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class QualifyService {
     public boolean isAvailable(PointsGift pointsGift){

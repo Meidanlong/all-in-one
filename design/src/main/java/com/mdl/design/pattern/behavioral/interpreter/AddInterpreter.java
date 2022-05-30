@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.interpreter;
 
 /**
- * Created by geely.
+ * Created by meidanlong.
  */
 public class AddInterpreter implements Interpreter {
     private Interpreter firstExpression,secondExpression;

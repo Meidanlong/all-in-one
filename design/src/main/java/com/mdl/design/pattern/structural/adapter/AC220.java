@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.adapter;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class AC220 {
     public int outputAC220V(){

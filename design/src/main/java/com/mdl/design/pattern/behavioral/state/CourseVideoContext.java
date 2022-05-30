@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.state;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class CourseVideoContext {
 

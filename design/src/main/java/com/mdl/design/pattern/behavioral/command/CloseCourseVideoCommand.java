@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.command;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class CloseCourseVideoCommand implements Command {
     private CourseVideo courseVideo;

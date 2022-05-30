@@ -1,7 +1,7 @@
 package com.mdl.design.principle.dependenceinversion;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Geely {
 

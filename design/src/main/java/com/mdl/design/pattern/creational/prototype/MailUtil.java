@@ -3,7 +3,7 @@ package com.mdl.design.pattern.creational.prototype;
 import java.text.MessageFormat;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class MailUtil {
     public static void sendMail(Mail mail){

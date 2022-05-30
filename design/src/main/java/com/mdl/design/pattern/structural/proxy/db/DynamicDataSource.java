@@ -3,7 +3,7 @@ package com.mdl.design.pattern.structural.proxy.db;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
     @Override

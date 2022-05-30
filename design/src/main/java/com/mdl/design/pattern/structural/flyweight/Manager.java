@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.flyweight;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Manager implements Employee {
     @Override

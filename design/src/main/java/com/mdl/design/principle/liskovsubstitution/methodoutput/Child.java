@@ -3,7 +3,7 @@ package com.mdl.design.principle.liskovsubstitution.methodoutput;
 import java.util.HashMap;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Child extends Base {
     @Override

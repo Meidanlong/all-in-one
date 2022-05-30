@@ -1,7 +1,7 @@
 package com.mdl.design.principle.liskovsubstitution;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Rectangle implements Quadrangle {
     private long length;

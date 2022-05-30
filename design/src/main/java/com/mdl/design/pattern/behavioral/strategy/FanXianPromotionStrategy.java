@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.strategy;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class FanXianPromotionStrategy implements PromotionStrategy {
     @Override

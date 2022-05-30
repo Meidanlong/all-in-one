@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.proxy;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Order {
     private Object orderInfo;

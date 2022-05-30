@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.creational.builder;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public abstract class CourseBuilder {
 

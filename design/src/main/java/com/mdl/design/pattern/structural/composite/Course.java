@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.composite;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Course extends CatalogComponent {
     private String name;

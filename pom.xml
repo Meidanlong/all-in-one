@@ -12,7 +12,10 @@
         <module>design</module>
         <module>java</module>
         <module>common</module>
-        <module>tools</module>
+        <module>demo</module>
+        <module>leetcode</module>
+        <module>springboot</module>
+        <module>springboot/redis</module>
     </modules>
 
     <properties>
@@ -20,6 +23,8 @@
         <maven.compiler.target>8</maven.compiler.target>
         <apache.commons.version>3.3.2</apache.commons.version>
         <cglib.version>3.2.10</cglib.version>
+        <lombok.version>1.18.20</lombok.version>
+        <spring-boot.version>2.1.13.RELEASE</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -34,6 +39,16 @@
                 <artifactId>common</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+
+            <!--springboot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -42,6 +57,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${apache.commons.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 

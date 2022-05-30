@@ -3,7 +3,7 @@ package com.mdl.design.principle.liskovsubstitution.methodinput;
 import java.util.Map;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Child extends Base {
 //    @Override

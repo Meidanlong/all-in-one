@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.creational.simplefactory;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class JavaVideo extends Video {
     @Override

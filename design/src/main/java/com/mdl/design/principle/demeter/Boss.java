@@ -2,7 +2,7 @@ package com.mdl.design.principle.demeter;
 
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Boss {
 

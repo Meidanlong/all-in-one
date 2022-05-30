@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.facade;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class PointsPaymentService {
     public boolean pay(PointsGift pointsGift){

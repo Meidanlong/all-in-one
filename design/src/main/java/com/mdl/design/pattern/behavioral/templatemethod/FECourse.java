@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.templatemethod;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class FECourse extends ACourse {
     private boolean needWriteArticleFlag = false;

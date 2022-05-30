@@ -1,7 +1,7 @@
 package com.mdl.design.principle.openclose;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public interface ICourse {
     Integer getId();

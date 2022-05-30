@@ -3,7 +3,7 @@ package com.mdl.design.pattern.behavioral.chainofresponsibility;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class VideoApprover extends Approver{
     @Override

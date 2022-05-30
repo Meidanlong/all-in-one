@@ -2,7 +2,7 @@ package com.mdl.design.pattern.structural.adapter.objectadapter;
 
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class ConcreteTarget implements Target {
     @Override

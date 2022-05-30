@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.behavioral.visitor;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public abstract class Course {
     private String name;

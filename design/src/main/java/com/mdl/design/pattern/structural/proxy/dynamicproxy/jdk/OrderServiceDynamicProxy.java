@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class OrderServiceDynamicProxy implements InvocationHandler {
 

@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.decorator.v2;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Test {
     public static void main(String[] args) {

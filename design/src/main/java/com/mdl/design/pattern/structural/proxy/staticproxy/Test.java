@@ -3,7 +3,7 @@ package com.mdl.design.pattern.structural.proxy.staticproxy;
 import com.mdl.design.pattern.structural.proxy.Order;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Test {
     public static void main(String[] args) {

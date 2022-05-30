@@ -4,7 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Teacher implements Observer{
     private String teacherName;

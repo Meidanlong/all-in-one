@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.decorator.v1;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class Battercake {
     protected String getDesc(){

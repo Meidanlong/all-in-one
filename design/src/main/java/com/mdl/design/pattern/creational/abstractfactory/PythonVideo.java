@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.creational.abstractfactory;
 
 /**
- * Created by geely
+ * Created by meidanlong
  */
 public class PythonVideo extends Video {
     @Override
