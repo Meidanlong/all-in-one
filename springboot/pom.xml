@@ -9,8 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <packaging>pom</packaging>
     <artifactId>springboot</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>redis</module>
+        <module>async</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

@@ -15,7 +15,7 @@
         <module>demo</module>
         <module>leetcode</module>
         <module>springboot</module>
-        <module>springboot/redis</module>
+        <module>springcloud-alibaba</module>
     </modules>
 
     <properties>
