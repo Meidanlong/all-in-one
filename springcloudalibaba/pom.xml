@@ -9,40 +9,41 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>springcloudalibaba</artifactId>
     <packaging>pom</packaging>
-    <artifactId>springboot</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <spring-boot.version>2.1.13.RELEASE</spring-boot.version>
+
+        <springboot.version>2.3.2.RELEASE</springboot.version>
+        <springcloudalibaba.version>2.2.5.RELEASE</springcloudalibaba.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--springboot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${springcloudalibaba.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-        <!--springboot依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>
