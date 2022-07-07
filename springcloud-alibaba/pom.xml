@@ -12,7 +12,9 @@
     <artifactId>springcloud-alibaba</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>server</module>
+        <module>provider</module>
+        <module>consumer</module>
+        <module>export</module>
     </modules>
 
     <properties>
@@ -21,6 +23,7 @@
 
         <springboot.version>2.3.2.RELEASE</springboot.version>
         <springcloud-alibaba.version>2.2.5.RELEASE</springcloud-alibaba.version>
+        <springcloud-alibaba.export.version>1.0-SNAPSHOT</springcloud-alibaba.export.version>
     </properties>
 
     <dependencyManagement>
@@ -39,23 +42,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!--项目服务-->
+            <dependency>
+                <groupId>com.mdl</groupId>
+                <artifactId>export</artifactId>
+                <version>${springcloud-alibaba.export.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

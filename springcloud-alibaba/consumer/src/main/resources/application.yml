@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: springcloud-alibaba-consumer
+  cloud:
+    nacos:
+      discovery:
+        service: springcloud-alibaba-consumer
+      server-addr: 82.156.216.48:8848
+dubbo:
+  application:
+    name: springcloud-alibaba-consumer
+    id: springcloud-alibaba-consumer
+  registry:
+    address: nacos:82.156.216.48:8848
+  protocol:
+    name: dubbo
+    port: 20500
