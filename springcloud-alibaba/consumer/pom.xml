@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>consumer</artifactId>
+    <artifactId>springcloud-alibaba-consumer</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>com.mdl</groupId>
-            <artifactId>export</artifactId>
+            <artifactId>springcloud-alibaba-export</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

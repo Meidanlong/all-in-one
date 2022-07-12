@@ -46,7 +46,7 @@
             <!--项目服务-->
             <dependency>
                 <groupId>com.mdl</groupId>
-                <artifactId>export</artifactId>
+                <artifactId>springcloud-alibaba-export</artifactId>
                 <version>${springcloud-alibaba.export.version}</version>
             </dependency>
         </dependencies>
