@@ -13,7 +13,7 @@ dubbo:
     name: springcloud-alibaba-consumer
     id: springcloud-alibaba-consumer
   registry:
-    address: nacos:82.156.216.48:8848
+    address: nacos://82.156.216.48:8848/
   protocol:
     name: dubbo
-    port: 20500
+    port: 20880
