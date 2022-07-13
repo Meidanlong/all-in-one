@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @date: 2022/7/7 09:19
  */
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @ComponentScan({"com.meidl.springcloudalibaba.consumer.reference",
         "com.meidl.springcloudalibaba.consumer.controller"})
 public class ConsumerApplication {
