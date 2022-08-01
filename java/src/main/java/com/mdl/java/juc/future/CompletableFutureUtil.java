@@ -7,7 +7,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiFunction;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -41,35 +40,33 @@ public class CompletableFutureUtil {
         }
     }
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static Supplier<Integer> firstJob(){
+        return () -> {
+            int number = new Random().nextInt(3) + 1;
+            try {
+                TimeUnit.SECONDS.sleep(number);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("第一阶段：" + number);
+            return number;
+        };
+    }
+
+        public static void main(String[] args) throws ExecutionException, InterruptedException {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                int number = new Random().nextInt(3) + 1;
-                try {
-                    TimeUnit.SECONDS.sleep(number);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("第一阶段：" + number);
-                return number;
-            }
-        });
+        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(firstJob());
 
-        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                int number = new Random().nextInt(3) + 1;
-                try {
-                    TimeUnit.SECONDS.sleep(number);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("第二阶段：" + number);
-                return number;
+        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> {
+            int number = new Random().nextInt(3) + 1;
+            try {
+                TimeUnit.SECONDS.sleep(number);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.println("第二阶段：" + number);
+            return number;
         });
 
         CompletableFuture<Integer> result = future1
@@ -91,12 +88,9 @@ public class CompletableFutureUtil {
                         System.out.println("CombineAsync：" + 3);
                         return x + y;
                     }
-                }).thenCombineAsync(future2, new BiFunction<Integer, Integer, Integer>() {
-                    @Override
-                    public Integer apply(Integer x, Integer y) {
-                        System.out.println("CombineAsync：" + 4);
-                        return x + y;
-                    }
+                }).thenCombineAsync(future2, (x, y) -> {
+                    System.out.println("CombineAsync：" + 4);
+                    return x + y;
                 });
         System.out.println("组合后结果：" + result.get());
         stopWatch.stop();
