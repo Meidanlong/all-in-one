@@ -8,6 +8,7 @@ spring:
       discovery:
         service: springcloud-alibaba-provider
       server-addr: 82.156.216.48:8848
+      file-extension: yaml
 dubbo:
   application:
     name: springcloud-alibaba-provider
