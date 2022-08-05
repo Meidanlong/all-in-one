@@ -4,6 +4,7 @@ import com.meidl.springcloudalibaba.consumer.domain.adapter.UserAdapter;
 import com.meidl.springcloudalibaba.consumer.domain.vo.UserVO;
 import com.meidl.springcloudalibaba.export.api.IUserRemoteService;
 import com.meidl.springcloudalibaba.export.domain.UserModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
