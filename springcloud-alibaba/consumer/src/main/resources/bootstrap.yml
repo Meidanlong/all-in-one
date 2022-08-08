@@ -8,6 +8,18 @@ spring:
       discovery:
         service: springcloud-alibaba-consumer
       server-addr: 82.156.216.48:8848
+    sentinel:
+      eager: true
+      transport:
+        dashboard: 172.19.160.212:8858
+      filter:
+#        enabled: false
+        url-patterns: /**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 dubbo:
   application:
     name: springcloud-alibaba-consumer

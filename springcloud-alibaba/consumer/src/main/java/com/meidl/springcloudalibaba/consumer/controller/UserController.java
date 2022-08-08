@@ -1,10 +1,10 @@
 package com.meidl.springcloudalibaba.consumer.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.meidl.springcloudalibaba.consumer.domain.adapter.UserAdapter;
 import com.meidl.springcloudalibaba.consumer.domain.vo.UserVO;
 import com.meidl.springcloudalibaba.export.api.IUserRemoteService;
 import com.meidl.springcloudalibaba.export.domain.UserModel;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +24,7 @@ public class UserController {
     private IUserRemoteService userRemoteService;
 
     @RequestMapping("query/{userId}")
+    @SentinelResource(value = "queryUserById")
     public UserVO queryUserById(@PathVariable Long userId){
         UserModel userModel = userRemoteService.queryUserById(userId);
         UserVO userVO = UserAdapter.model2vo(userModel);

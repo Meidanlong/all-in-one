@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date: 2022/8/5 09:31
  */
 @RestController
-@RequestMapping("/conf/")
+//@RequestMapping("/conf/")
 public class ConfigController {
 
     @Value("${configText}")
