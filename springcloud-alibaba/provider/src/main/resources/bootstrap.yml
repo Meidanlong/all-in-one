@@ -10,10 +10,12 @@ spring:
       server-addr: 82.156.216.48:8848
       file-extension: yaml
     sentinel:
+      eager: true
       transport:
-        dashboard: 82.156.216.48:8858
+        dashboard: 172.19.160.212:8858
       filter:
-        enabled: false
+        #        enabled: false
+        url-patterns: /**
 management:
   endpoints:
     web:

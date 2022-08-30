@@ -12,14 +12,15 @@ spring:
       eager: true
       transport:
         dashboard: 172.19.160.212:8858
+        clientIp: 172.19.160.212
       filter:
 #        enabled: false
         url-patterns: /**
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
 dubbo:
   application:
     name: springcloud-alibaba-consumer
