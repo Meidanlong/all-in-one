@@ -1,6 +1,6 @@
 package com.mdl.tools.test;
 
-import com.mdl.tools.diamond.annotation.Api;
+import com.mdl.tools.diamond.annotation.ApiDoc;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestController {
 
-    @Api(desc = "测试接口", requirementId = 1)
-    public String test(){
-        return "test";
+    @ApiDoc(desc = "测试接口", demandId = 1)
+    public String test(@ApiDoc(desc = "数字", demandId = 2, defaultValue = "100") int num, Person person){
+        return "test_" + num + "_" + person.getName();
     }
 }

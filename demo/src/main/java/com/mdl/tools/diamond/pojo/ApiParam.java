@@ -1,5 +1,8 @@
 package com.mdl.tools.diamond.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @description:
  * @author: meidanlong
@@ -7,28 +10,40 @@ package com.mdl.tools.diamond.pojo;
  */
 public class ApiParam {
 
-    private String name;
+    private String paramName;
 
-    private String desc;
+    private String paramDesc;
+
+    private Integer demandId;
 
     private String generateRule;
 
     private String defaultValue;
 
-    public String getName() {
-        return name;
+    private List<ApiParam> fields = new ArrayList<>();
+
+    public String getParamName() {
+        return paramName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setParamName(String paramName) {
+        this.paramName = paramName;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getParamDesc() {
+        return paramDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setParamDesc(String paramDesc) {
+        this.paramDesc = paramDesc;
+    }
+
+    public Integer getDemandId() {
+        return demandId;
+    }
+
+    public void setDemandId(Integer demandId) {
+        this.demandId = demandId;
     }
 
     public String getGenerateRule() {
@@ -45,5 +60,34 @@ public class ApiParam {
 
     public void setDefaultValue(String defaultValue) {
         this.defaultValue = defaultValue;
+    }
+
+    public List<ApiParam> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<ApiParam> fields) {
+        this.fields = fields;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"paramName\": \"" + paramName + '\"' +
+                ", \"paramDesc\": \"" + paramDesc + '\"' +
+                ", \"demandId\": " + demandId +
+                ", \"generateRule\": \"" + generateRule + '\"' +
+                ", \"defaultValue\": \"" + defaultValue + '\"' +
+                ", \"fields\": " + fields +
+                "}";
+    }
+
+    private String toJsonString(String str){
+        return str.replaceAll(this.getClass().getSimpleName(), "")
+                .replaceAll("'", "\"")
+                .replaceAll("\\{", "{\"")
+                .replaceAll(", ", ", \"")
+                .replaceAll("=", "\": ")
+                .replaceAll("=\"", "\": \"");
     }
 }

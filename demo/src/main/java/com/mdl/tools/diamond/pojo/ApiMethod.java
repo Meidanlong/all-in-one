@@ -1,5 +1,6 @@
 package com.mdl.tools.diamond.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,8 +14,13 @@ public class ApiMethod {
 
     private String beanName;
 
-    private List<ApiParam> params;
+    private String methodName;
 
+    private String methodDesc;
+
+    private Integer demandId;
+
+    private List<ApiParam> params = new ArrayList<>();
 
     public String getAppName() {
         return appName;
@@ -32,11 +38,48 @@ public class ApiMethod {
         this.beanName = beanName;
     }
 
+    public String getMethodName() {
+        return methodName;
+    }
+
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+    }
+
+    public String getMethodDesc() {
+        return methodDesc;
+    }
+
+    public void setMethodDesc(String methodDesc) {
+        this.methodDesc = methodDesc;
+    }
+
+    public Integer getDemandId() {
+        return demandId;
+    }
+
+    public void setDemandId(Integer demandId) {
+        this.demandId = demandId;
+    }
+
     public List<ApiParam> getParams() {
         return params;
     }
 
     public void setParams(List<ApiParam> params) {
         this.params = params;
+    }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"appName\": \"" + appName + '\"' +
+                ", \"beanName\": \"" + beanName + '\"' +
+                ", \"methodName\": \"" + methodName + '\"' +
+                ", \"methodDesc\": \"" + methodDesc + '\"' +
+                ", \"demandId\": " + demandId +
+                ", \"params\":" + params +
+                '}';
     }
 }
