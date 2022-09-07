@@ -1,6 +1,8 @@
 package com.mdl.tools.validate.util;
 
 import com.mdl.common.domain.Dog;
+import com.mdl.tools.validation.jdk.ValidateProxy;
+import com.mdl.tools.validation.jdk.ValidateUtil;
 
 /**
  * @description:

@@ -1,4 +1,4 @@
-package com.mdl.tools.validate.domain;
+package com.mdl.tools.validation.jdk;
 
 import java.util.List;
 import java.util.Stack;

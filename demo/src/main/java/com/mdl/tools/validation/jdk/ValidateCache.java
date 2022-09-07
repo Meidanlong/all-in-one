@@ -1,7 +1,5 @@
-package com.mdl.tools.validate.util;
+package com.mdl.tools.validation.jdk;
 
-import com.mdl.tools.validate.domain.ValidateObj;
-import com.mdl.tools.validate.domain.ValidateStack;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package com.mdl.tools.validate.util;
+package com.mdl.tools.validation.jdk;
 
 /**
  * @description:校验工具类

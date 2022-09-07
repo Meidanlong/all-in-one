@@ -1,6 +1,5 @@
-package com.mdl.tools.validate.util;
+package com.mdl.tools.validation.jdk;
 
-import com.mdl.tools.validate.domain.ValidateObj;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

@@ -15,6 +15,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring-boot.version>2.1.13.RELEASE</spring-boot.version>
+        <fastjson.version>1.2.69</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +56,13 @@
         <dependency>
             <groupId>com.mdl</groupId>
             <artifactId>common</artifactId>
+        </dependency>
+
+        <!-- json -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 
