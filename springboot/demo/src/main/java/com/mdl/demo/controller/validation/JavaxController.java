@@ -1,7 +1,9 @@
 package com.mdl.demo.controller.validation;
 
 import com.mdl.demo.domain.validation.javax.ValidationPerson;
+import com.mdl.demo.service.validation.JavaxService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.ValidationException;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -27,6 +30,10 @@ import javax.validation.constraints.NotNull;
 public class JavaxController {
 
     private final static String SUCCESS = "校验通过";
+    private final static String FAILED = "校验失败-%s";
+
+    @Autowired
+    private JavaxService javaxService;
 
     /**
      * 测试参数校验*
@@ -43,6 +50,16 @@ public class JavaxController {
                                        Integer age){
         log.info("==>[JavaxController#testGetParam], name={}, age={}", name, age);
         return SUCCESS;
+    }
+    @GetMapping("get/param/service")
+    public String testGetParamByService(String name,Integer age){
+        log.info("==>[JavaxController#testGetParamByService], name={}, age={}", name, age);
+        try {
+            return javaxService.testGetParam(name, age);
+        }catch (ValidationException ex){
+            log.error("<==[JavaxController#testGetParamByService] - ex={}", ex.getMessage());
+            return String.format(FAILED, ex.getMessage());
+        }
     }
 
     /**
@@ -102,6 +119,16 @@ public class JavaxController {
     public String testGetObj(@Valid ValidationPerson vPerson){
         log.info("==>[JavaxController#testGetObj], name={}, age={}", vPerson.getName(), vPerson.getAge());
         return SUCCESS;
+    }
+    @GetMapping("get/obj/service")
+    public String testGetObjByService(ValidationPerson vPerson){
+        log.info("==>[JavaxController#testGetObjByService] - name={}, age={}", vPerson.getName(), vPerson.getAge());
+        try {
+            return javaxService.testGetObj(vPerson);
+        }catch (ValidationException ex){
+            log.error("<==[JavaxController#testGetObjByService] - ex={}", ex.getMessage());
+            return String.format(FAILED, ex.getMessage());
+        }
     }
 
     /**
