@@ -20,6 +20,6 @@ public class ValidationPerson{
     private String name;
 
     @NotNull(message = "年龄不能为空")
-    @Min(value = 1)
+    @Min(value = 1, message = "年龄不能小于1岁")
     private Integer age;
 }
