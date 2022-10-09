@@ -1,6 +1,8 @@
 package com.mdl.demo.service.validation;
 
 import com.mdl.demo.domain.validation.javax.ValidationPerson;
+import com.mdl.demo.utils.ExceptionUtil;
+import com.mdl.demo.utils.JsonUtil;
 import com.mdl.demo.utils.ValidateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -48,7 +50,7 @@ public class JavaxService {
         try {
             ValidateUtil.validate(validationPerson);
         }catch (ValidationException ve){
-            log.error("<==[JavaxService#testInnerObj] - ex={}", ve.getMessage());
+            log.error("<==[JavaxService#testInnerObj] - ex={}, trace={}", ve.getMessage(), ExceptionUtil.stackTrace(ve));
             return String.format(FAILED, ve.getMessage());
         }
 
