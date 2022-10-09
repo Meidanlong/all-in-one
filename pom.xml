@@ -12,7 +12,6 @@
         <module>design</module>
         <module>java</module>
         <module>common</module>
-        <module>demo</module>
         <module>leetcode</module>
         <module>springboot</module>
         <module>springcloud-alibaba</module>
