@@ -57,9 +57,9 @@ public class CompletableFutureUtil {
             }
         });
 
-        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+        CompletableFuture<Long> future2 = CompletableFuture.supplyAsync(new Supplier<Long>() {
             @Override
-            public Integer get() {
+            public Long get() {
                 int number = new Random().nextInt(3) + 1;
                 try {
                     TimeUnit.SECONDS.sleep(number);
@@ -67,34 +67,19 @@ public class CompletableFutureUtil {
                     e.printStackTrace();
                 }
                 System.out.println("第二阶段：" + number);
-                return number;
+                return Long.valueOf(number);
             }
         });
 
         CompletableFuture<Integer> result = future1
-                .thenCombineAsync(future2, new BiFunction<Integer, Integer, Integer>() {
+                .thenCombineAsync(future2, (x, y) -> {
+                    System.out.println("CombineAsync：" + 1);
+                    return Integer.valueOf((int) (x + y));
+                }).thenCombineAsync(future2, new BiFunction<Integer, Long, Integer>() {
                     @Override
-                    public Integer apply(Integer x, Integer y) {
-                        System.out.println("CombineAsync：" + 1);
-                        return x + y;
-                    }
-                }).thenCombineAsync(future2, new BiFunction<Integer, Integer, Integer>() {
-                    @Override
-                    public Integer apply(Integer x, Integer y) {
+                    public Integer apply(Integer x, Long y) {
                         System.out.println("CombineAsync：" + 2);
-                        return x + y;
-                    }
-                }).thenCombineAsync(future2, new BiFunction<Integer, Integer, Integer>() {
-                    @Override
-                    public Integer apply(Integer x, Integer y) {
-                        System.out.println("CombineAsync：" + 3);
-                        return x + y;
-                    }
-                }).thenCombineAsync(future2, new BiFunction<Integer, Integer, Integer>() {
-                    @Override
-                    public Integer apply(Integer x, Integer y) {
-                        System.out.println("CombineAsync：" + 4);
-                        return x + y;
+                        return Integer.valueOf((int) (x + y));
                     }
                 });
         System.out.println("组合后结果：" + result.get());
