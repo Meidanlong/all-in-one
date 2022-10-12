@@ -19,7 +19,7 @@ public class JavaxServiceTest extends TestCase {
     private final static String SUCCESS = "校验通过";
 
     @Autowired
-    private JavaxService javaxService;
+    private JavaxServiceImpl javaxService;
 
     @Test
     public void testTestInnerObj() {

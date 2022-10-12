@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author: meidanlong
  * @date: 2022/8/30 19:44
  */
-//@ComponentScan({"com.mdl.springboot.*"})
+@ComponentScan({"com.mdl.springboot.**", "java.lang", "org.springframework.web.bind.annotation"})
 @SpringBootApplication
 public class DemoApplication {
 

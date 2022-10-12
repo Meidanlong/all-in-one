@@ -1,7 +1,9 @@
 package com.mdl.springboot.demo.controller.validation;
 
 import com.mdl.springboot.demo.domain.validation.javax.ValidationPerson;
+import com.mdl.springboot.demo.project.diamond.annotation.ApiDoc;
 import com.mdl.springboot.demo.service.validation.JavaxService;
+import com.mdl.springboot.demo.service.validation.JavaxServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -24,6 +26,7 @@ import javax.validation.constraints.NotNull;
  * @date: 2022/10/9 15:10
  */
 @Slf4j
+@Validated
 @RestController
 @RequestMapping("/springboot/demo/validation/javax/")
 public class JavaxController {
@@ -122,12 +125,13 @@ public class JavaxController {
     @GetMapping("get/obj/service")
     public String testGetObjByService(ValidationPerson vPerson){
         log.info("==>[JavaxController#testGetObjByService] - name={}, age={}", vPerson.getName(), vPerson.getAge());
-        try {
-            return javaxService.testGetObj(vPerson);
-        }catch (ValidationException ex){
-            log.error("<==[JavaxController#testGetObjByService] - ex={}", ex.getMessage());
-            return String.format(FAILED, ex.getMessage());
-        }
+//        try {
+//            return javaxService.testGetObj(vPerson);
+//        }catch (ValidationException ex){
+//            log.error("<==[JavaxController#testGetObjByService] - ex={}", ex.getMessage());
+//            return String.format(FAILED, ex.getMessage());
+//        }
+        return javaxService.testGetObj(vPerson);
     }
 
     /**
