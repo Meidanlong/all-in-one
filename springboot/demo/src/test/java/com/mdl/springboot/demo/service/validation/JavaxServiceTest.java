@@ -22,6 +22,11 @@ public class JavaxServiceTest extends TestCase {
     private JavaxServiceImpl javaxService;
 
     @Test
+    public void testGetParam() {
+        assertEquals(SUCCESS, javaxService.testGetParam(null, null));
+    }
+
+    @Test
     public void testTestInnerObj() {
         assertEquals(SUCCESS, javaxService.testInnerObj());
     }
