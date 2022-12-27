@@ -16,6 +16,7 @@ import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -35,6 +36,8 @@ import java.util.stream.Collectors;
 @Component
 public class LogAspect {
 
+    private final static String CLASS_METHOD_NAME = "[%s#%s]";
+
     @Pointcut("@annotation(com.mdl.springboot.demo.domain.annotation.Log)")
     public void pointCut(){
     }
@@ -42,15 +45,21 @@ public class LogAspect {
     @Around("pointCut()")
     public Object pointCut(ProceedingJoinPoint joinPoint) throws Throwable {
         LogDetail logDetail = populateLogDetail(joinPoint);
+        String classMethodName = String.format(CLASS_METHOD_NAME, logDetail.getClazz().getSimpleName(), logDetail.getMethod().getName());
+        // 初始化计时器
+        StopWatch timer = new StopWatch();
+        timer.start(Thread.currentThread().getId() + "_" + classMethodName + "_" + System.currentTimeMillis());
         try{
-            log.info("==>[{}#{}] - {} - params={}", logDetail.getClazz().getSimpleName(), logDetail.getMethod().getName(), logDetail.getDesc(), JSON.toJSONString(logDetail.args));
+            log.info("==>{} - {} : params={}", classMethodName, logDetail.getDesc(), JSON.toJSONString(logDetail.args));
             // 执行业务逻辑
             Object result = joinPoint.proceed();
-            log.info("<==[{}#{}] - {} - result={}, params={}", logDetail.getClazz().getSimpleName(), logDetail.getMethod().getName(),logDetail.getDesc(), JSON.toJSONString(result), JSON.toJSONString(logDetail.args));
+            timer.stop();
+            log.info("<=={} - {} - cost={}ms : result={}, params={}", classMethodName, logDetail.getDesc(), timer.getLastTaskTimeMillis(), JSON.toJSONString(result), JSON.toJSONString(logDetail.args));
             return result;
         }catch (Exception ex){
-            log.info("!==[{}#{}] - {} - 未知异常，ex={}，参考error.log - params={}", logDetail.getClazz().getSimpleName(), logDetail.getMethod().getName(), logDetail.getDesc(), ex.getMessage(), JSON.toJSONString(logDetail.args));
-            log.error("!!![{}#{}] - {} - {} - params={}, trace={}", logDetail.getClazz().getSimpleName(), logDetail.getMethod().getName(), logDetail.getDesc(), ex.getMessage(), JSON.toJSONString(logDetail.args), exceptionStackTrace(ex), ex);
+            timer.stop();
+            log.info("!=={} - {} - cost={}ms : 未知异常，ex={}，参考error.log - params={}", classMethodName, logDetail.getDesc(), timer.getLastTaskTimeMillis(), ex.getMessage(), JSON.toJSONString(logDetail.args));
+            log.error("!!!{} - {} : {} - params={}, trace={}", classMethodName, logDetail.getDesc(), ex.getMessage(), JSON.toJSONString(logDetail.args), exceptionStackTrace(ex), ex);
             throw ex;
         }
     }

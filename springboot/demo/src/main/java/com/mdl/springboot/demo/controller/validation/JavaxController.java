@@ -7,6 +7,7 @@ import com.mdl.springboot.demo.service.validation.JavaxService;
 import com.mdl.springboot.demo.service.validation.JavaxServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import javax.validation.ValidationException;
 import javax.validation.constraints.Min;
@@ -37,6 +39,9 @@ public class JavaxController {
 
     @Autowired
     private JavaxService javaxService;
+    @Resource
+    @Lazy
+    private JavaxController javaxController;
 
     /**
      * 测试参数校验*
@@ -45,25 +50,29 @@ public class JavaxController {
      * @return
      */
 //    @Valid
-    @Log("测试GET方法参数校验")
+    @Log("AA测试GET方法参数注解校验")
     @GetMapping("get/param")
     public String testGetParam(// @Valid
                                @RequestParam("name") @NotEmpty(message = "名字不能为空")
                                            String name,
                                @RequestParam("age") @NotNull(message = "年龄不能为空") @Min(value = 1, message = "年龄不能小于1岁")
                                        Integer age){
-        log.info("==>[JavaxController#testGetParam], name={}, age={}", name, age);
+//        log.info("==>[JavaxController#testGetParam], name={}, age={}", name, age);
+        javaxController.testGetParamByService(name, age);
         return SUCCESS;
     }
+
+    @Log("BB测试GET方法参数无注解校验")
     @GetMapping("get/param/service")
     public String testGetParamByService(String name,Integer age){
-        log.info("==>[JavaxController#testGetParamByService], name={}, age={}", name, age);
-        try {
-            return javaxService.testGetParam(name, age);
-        }catch (ValidationException ex){
-            log.error("<==[JavaxController#testGetParamByService] - ex={}", ex.getMessage());
-            return String.format(FAILED, ex.getMessage());
-        }
+//        log.info("==>[JavaxController#testGetParamByService], name={}, age={}", name, age);
+        return javaxService.testGetParam(name, age);
+//        try {
+//            return javaxService.testGetParam(name, age);
+//        }catch (ValidationException ex){
+//            log.error("<==[JavaxController#testGetParamByService] - ex={}", ex.getMessage());
+//            return String.format(FAILED, ex.getMessage());
+//        }
     }
 
     /**
