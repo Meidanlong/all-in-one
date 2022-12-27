@@ -1,5 +1,6 @@
 package com.mdl.springboot.demo.controller.validation;
 
+import com.mdl.springboot.demo.domain.annotation.Log;
 import com.mdl.springboot.demo.domain.validation.javax.ValidationPerson;
 import com.mdl.springboot.demo.project.diamond.annotation.ApiDoc;
 import com.mdl.springboot.demo.service.validation.JavaxService;
@@ -44,6 +45,7 @@ public class JavaxController {
      * @return
      */
 //    @Valid
+    @Log("测试GET方法参数校验")
     @GetMapping("get/param")
     public String testGetParam(// @Valid
                                @RequestParam("name") @NotEmpty(message = "名字不能为空")
