@@ -1,7 +1,7 @@
 package com.mdl.design.pattern.structural.proxy.dynamicproxy;
 
 
-import com.mdl.common.domain.Dog;
+import com.mdl.common.domain.demo.Dog;
 import com.mdl.design.pattern.structural.proxy.dynamicproxy.cglib.DogCglibProxy;
 
 /**

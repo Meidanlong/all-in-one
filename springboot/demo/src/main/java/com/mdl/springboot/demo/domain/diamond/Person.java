@@ -1,6 +1,6 @@
 package com.mdl.springboot.demo.domain.diamond;
 
-import com.mdl.common.domain.Mammal;
+import com.mdl.common.domain.demo.Mammal;
 import com.mdl.springboot.demo.project.diamond.annotation.ApiDoc;
 
 /**
