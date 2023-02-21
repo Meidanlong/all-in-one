@@ -1,5 +1,7 @@
 package com.meidl.leetcode.editor.cn;
 
+import com.meidl.leetcode.editor.cn.helper.TreeNode;
+
 // [687] 最长同值路径
 public class LongestUnivaluePath{
   public static void main(String[] args) {
@@ -8,18 +10,6 @@ public class LongestUnivaluePath{
     
 //leetcode submit region begin(Prohibit modification and deletion)
 // Definition for a binary tree node.
-public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 class Solution {
     int res = 0;
     public int longestUnivaluePath(TreeNode root) {
