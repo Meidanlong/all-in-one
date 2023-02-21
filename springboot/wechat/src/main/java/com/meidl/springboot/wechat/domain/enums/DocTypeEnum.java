@@ -8,7 +8,7 @@ package com.meidl.springboot.wechat.domain.enums;
 public enum DocTypeEnum {
 
     DOC(3, "文档"),
-    Table(4, "表格")
+    TABLE(4, "表格")
     ;
 
     private Integer code;
