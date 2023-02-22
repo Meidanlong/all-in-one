@@ -104,7 +104,7 @@ public class UserService {
      */
     public void batchDeleteUsers(List<String> useridList){
         String accessToken = accessTokenService.getAccessToken();
-        String url = String.format(userMobileUrl, accessToken);
+        String url = String.format(batchDeleteUrl, accessToken);
         Map<String, List<String>> param = new HashMap<>();
         param.put("useridlist", useridList);
         HttpUtil.doPostJson(url, null, JSON.toJSONString(param));
@@ -120,7 +120,7 @@ public class UserService {
      * @param mobile fieldDesc @required
      * @return String
      */
-    private String getUserIdByMobile(String mobile){
+    public String getUserIdByMobile(String mobile){
         String accessToken = accessTokenService.getAccessToken();
         String url = String.format(userMobileUrl, accessToken);
         Map<String, String> param = new HashMap<>();

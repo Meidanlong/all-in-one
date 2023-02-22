@@ -8,6 +8,7 @@ import com.mdl.common.utils.HttpUtil;
 import com.mdl.common.utils.StringUtil;
 import com.meidl.springboot.wechat.domain.dto.AccessTokenDTO;
 import com.meidl.springboot.wechat.utils.ResultUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @author: meidanlong
  * @date: 2023/2/16 16:37
  */
+@Slf4j
 @Service
 public class AccessTokenService {
 
@@ -42,7 +44,8 @@ public class AccessTokenService {
      * @return AccessTokenDTO
      */
     public String getAccessToken(){
-        if(accessTokenDTO != null && accessTokenDTO.getExpireTime() < System.currentTimeMillis()){
+        if(accessTokenDTO != null && accessTokenDTO.getExpireTime().compareTo(System.currentTimeMillis()) > 0){
+            log.info("==[AccessTokenService#getAccessToken] already had accessToken");
             return accessTokenDTO.getAccessToken();
         }
         // 获取企业微信accessToken
@@ -53,7 +56,7 @@ public class AccessTokenService {
         JSONObject jsonObject = ResultUtil.getResult(result, "获取企业微信accessToken链接");
         accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setAccessToken(jsonObject.getString("access_token"));
-        Long expires_in = jsonObject.getLong("expires_in");
+        Long expires_in = jsonObject.getLong("expires_in") * 1000L;
         Long expireTime = System.currentTimeMillis() + expires_in - SAFE_MS;
         if(expireTime <= RETRY_MS){
             return getAccessToken();
