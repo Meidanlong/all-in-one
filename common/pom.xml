@@ -14,6 +14,46 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <!--基础能力-->
+        <javax-validation.version>2.0.2</javax-validation.version>
+        <joda-time.version>2.10.13</joda-time.version>
+        <httpcore.version>4.4.10</httpcore.version>
+        <httpclient.version>4.5.6</httpclient.version>
+        <fastjson.version>1.2.69</fastjson.version>
     </properties>
+
+    <dependencies>
+        <!-- javax.validation -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${javax-validation.version}</version>
+        </dependency>
+        <!-- joda时间处理 -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
+
+        <!--Http-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>${httpcore.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+        <!-- json -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

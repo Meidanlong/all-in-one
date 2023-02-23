@@ -1,4 +1,4 @@
-package com.mdl.common.domain;
+package com.mdl.common.domain.demo;
 
 /**
  * @description:哺乳类

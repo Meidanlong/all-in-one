@@ -1,6 +1,6 @@
 package com.mdl.java.juc.threadlocal;
 
-import com.mdl.common.domain.Dog;
+import com.mdl.common.domain.demo.Dog;
 
 /**
  * @description:
