@@ -13,5 +13,7 @@ public class DepartmentDTO extends BaseObject {
 
     private Integer departmentId;
 
-    private String departmentName;
+    private Integer parentId;
+
+    private Integer order;
 }
