@@ -6,12 +6,12 @@ import lombok.Data;
 /**
  * @description:
  * @author: meidanlong
- * @date: 2023/2/22 19:44
+ * @date: 2023/2/21 16:33
  */
 @Data
-public class DepartmentDTO extends BaseObject {
+public class UserDepartmentDTO extends BaseObject {
 
     private Integer departmentId;
 
-    private String departmentName;
+    private Boolean theLeader;
 }

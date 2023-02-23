@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mdl.common.utils.HttpUtil;
-import com.meidl.springboot.wechat.domain.dto.DepartmentDTO;
+import com.meidl.springboot.wechat.domain.dto.UserDepartmentDTO;
 import com.meidl.springboot.wechat.domain.dto.UserDTO;
 import com.meidl.springboot.wechat.domain.enums.UserGenderEnum;
 import com.meidl.springboot.wechat.domain.enums.UserStatusEnum;
@@ -64,15 +64,15 @@ public class UserService {
         userDTO.setStatus(UserStatusEnum.getEnum(jsonObject.getInteger("status")));
         JSONArray departmentArray = jsonObject.getJSONArray("department");
         JSONArray theLeaderArray = jsonObject.getJSONArray("is_leader_in_dept");
-        List<DepartmentDTO> departments = new ArrayList<>();
+        List<UserDepartmentDTO> departments = new ArrayList<>();
         if(departmentArray != null && !departmentArray.isEmpty() && theLeaderArray != null && !theLeaderArray.isEmpty()){
             Integer[] departmentArr = departmentArray.toArray(new Integer[departmentArray.size()]);
             Integer[] theLeaderArr = theLeaderArray.toArray(new Integer[theLeaderArray.size()]);
             for(int i=0; i<departmentArr.length; i++){
-                DepartmentDTO departmentDTO = new DepartmentDTO();
-                departmentDTO.setDepartmentId(departmentArr[i]);
-                departmentDTO.setTheLeader(YES.equals(theLeaderArr[i]));
-                departments.add(departmentDTO);
+                UserDepartmentDTO userDepartmentDTO = new UserDepartmentDTO();
+                userDepartmentDTO.setDepartmentId(departmentArr[i]);
+                userDepartmentDTO.setTheLeader(YES.equals(theLeaderArr[i]));
+                departments.add(userDepartmentDTO);
             }
         }
         userDTO.setDepartments(departments);

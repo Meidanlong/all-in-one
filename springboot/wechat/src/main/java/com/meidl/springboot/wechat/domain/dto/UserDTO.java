@@ -21,7 +21,7 @@ public class UserDTO extends BaseObject {
 
     private UserGenderEnum gender;
 
-    private List<DepartmentDTO> departments;
+    private List<UserDepartmentDTO> departments;
 
     private String position;
 
