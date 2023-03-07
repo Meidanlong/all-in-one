@@ -2,6 +2,7 @@ package com.meidl.springboot.wechat.service.workweixin;
 
 import com.meidl.springboot.wechat.WechatApplication;
 import com.meidl.springboot.wechat.domain.dto.UserDTO;
+import com.meidl.springboot.wechat.service.workweixin.crop.UserService;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -10,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**

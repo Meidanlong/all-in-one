@@ -4,6 +4,7 @@ import com.meidl.springboot.wechat.WechatApplication;
 import com.meidl.springboot.wechat.domain.dto.CreateDocDTO;
 import com.meidl.springboot.wechat.domain.dto.DocDTO;
 import com.meidl.springboot.wechat.domain.enums.DocTypeEnum;
+import com.meidl.springboot.wechat.service.workweixin.crop.WedocService;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

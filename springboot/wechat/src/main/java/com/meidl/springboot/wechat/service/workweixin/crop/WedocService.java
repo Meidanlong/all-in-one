@@ -1,23 +1,16 @@
-package com.meidl.springboot.wechat.service.workweixin;
+package com.meidl.springboot.wechat.service.workweixin.crop;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.mdl.common.domain.BusinessException;
-import com.mdl.common.enums.ErrorEnum;
 import com.mdl.common.utils.HttpUtil;
-import com.mdl.common.utils.StringUtil;
 import com.meidl.springboot.wechat.domain.dto.CreateDocDTO;
 import com.meidl.springboot.wechat.domain.dto.DocDTO;
 import com.meidl.springboot.wechat.utils.ResultUtil;
-import com.oracle.tools.packager.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

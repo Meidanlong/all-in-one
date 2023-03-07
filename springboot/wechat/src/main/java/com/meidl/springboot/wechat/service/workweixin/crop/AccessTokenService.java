@@ -1,4 +1,4 @@
-package com.meidl.springboot.wechat.service.workweixin;
+package com.meidl.springboot.wechat.service.workweixin.crop;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

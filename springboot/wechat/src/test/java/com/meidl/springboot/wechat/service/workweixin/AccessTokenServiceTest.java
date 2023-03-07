@@ -1,7 +1,7 @@
 package com.meidl.springboot.wechat.service.workweixin;
 
 import com.meidl.springboot.wechat.WechatApplication;
-import com.meidl.springboot.wechat.service.workweixin.AccessTokenService;
+import com.meidl.springboot.wechat.service.workweixin.crop.AccessTokenService;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
