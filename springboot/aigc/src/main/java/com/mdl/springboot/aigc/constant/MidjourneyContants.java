@@ -14,5 +14,5 @@ public class MidjourneyContants {
 
     public static final String AUTHORIZATION = "ODc3MjU3Mjg5NTYyNzUxMDQ2.GyEpEj.KEQk9XhOtEIgxGYc71BTSCg5oDvZLtijjdOCcw";
 
-    public static final String ROBOT_TOKEN = "MTEwMzkzNjQxNTY0Mjk0MzUzMg.GHFf0-.SPE3XrnfcqvFcHzSG6U4WmVI2KJ0AtmM53cR40";
+    public static final String ROBOT_TOKEN = "";
 }

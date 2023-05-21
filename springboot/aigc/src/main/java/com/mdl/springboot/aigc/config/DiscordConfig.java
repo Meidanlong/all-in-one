@@ -14,7 +14,7 @@ import java.net.Proxy;
 @Configuration
 public class DiscordConfig {
 
-    public static final String ROBOT_TOKEN = "MTEwMzkzNjQxNTY0Mjk0MzUzMg.GHFf0-.SPE3XrnfcqvFcHzSG6U4WmVI2KJ0AtmM53cR40";
+    public static final String ROBOT_TOKEN = "";
 
     @Bean
     public DiscordApi discordApi(){
