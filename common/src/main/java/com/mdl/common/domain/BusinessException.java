@@ -15,6 +15,9 @@ public class BusinessException extends RuntimeException {
      */
     @Getter
     private String code;
+    // 配合Log注解使用，记录实际异常
+    @Getter
+    private Exception exception;
 
     /**
      * 根据枚举构造业务类异常
@@ -34,6 +37,12 @@ public class BusinessException extends RuntimeException {
         this.code = ErrorEnum.XXX.getCode();
     }
 
+    public BusinessException(String message, Exception exception) {
+        super(message);
+        this.code = ErrorEnum.XXX.getCode();
+        this.exception = exception;
+    }
+
     /**
      * 自定义消息体构造业务类异常
      * @param error
@@ -42,6 +51,12 @@ public class BusinessException extends RuntimeException {
     public BusinessException(ErrorEnum error, String message) {
         super(message);
         this.code = error.getCode();
+    }
+
+    public BusinessException(ErrorEnum error, String message, Exception exception) {
+        super(message);
+        this.code = ErrorEnum.XXX.getCode();
+        this.exception = exception;
     }
 
     /**
