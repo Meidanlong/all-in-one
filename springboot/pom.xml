@@ -17,6 +17,7 @@
         <module>demo</module>
         <module>wechat</module>
         <module>aigc</module>
+        <module>alibaba</module>
     </modules>
 
     <properties>
