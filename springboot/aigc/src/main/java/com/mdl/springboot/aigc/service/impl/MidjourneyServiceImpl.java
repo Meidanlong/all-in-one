@@ -3,9 +3,9 @@ package com.mdl.springboot.aigc.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.mdl.common.domain.BusinessException;
 import com.mdl.common.utils.HttpUtil;
-import com.mdl.springboot.aigc.constant.MidjourneyContants;
-import com.mdl.springboot.aigc.domain.midjourney.ApplicationCommandModel;
+import com.mdl.springboot.aigc.constant.MidjourneyConstants;
 import com.mdl.springboot.aigc.domain.midjourney.DataModel;
 import com.mdl.springboot.aigc.domain.midjourney.InteractionsRequest;
 import com.mdl.springboot.aigc.domain.midjourney.OptionModel;
@@ -29,47 +29,55 @@ public class MidjourneyServiceImpl implements IMidjourneyService {
     @Override
     public String generateImage(String promptText) {
         Map<String, String> headerMap = Maps.newHashMap();
-        headerMap.put("authorization", MidjourneyContants.AUTHORIZATION);
+        // 可配置多账号轮询
+        headerMap.put("authorization", MidjourneyConstants.AUTHORIZATION);
         headerMap.put("Content-Type", "application/json");
         InteractionsRequest req = buildInteractionsRequest(promptText);
         String reqJson = JSON.toJSONString(req);
-        log.info("===reqJson is {}", reqJson);
+        log.info("===[IMidjourneyService#generateImage] reqJson is {}", reqJson);
         try {
-            String res = HttpUtil.doProxyPostJson(MidjourneyContants.API_URL, headerMap, reqJson);
-            return res;
+            String res = HttpUtil.doProxyPostJson(MidjourneyConstants.API_URL, headerMap, reqJson);
+            if(!StringUtils.isEmpty(res)){
+                // 正常请求返回应为空字符串。如果遇到限流等异常会有错误信息
+                log.error("!==[IMidjourneyService#generateImage] error, result={}, request={}", res, reqJson);
+                throw new BusinessException("调用MJ生图失败，结果返回异常");
+            }
+            return MidjourneyConstants.SUCCESS;
         } catch (Exception e) {
-            log.error("VolcanoTtsService generateVoice error,request={}", reqJson, e);
+            return MidjourneyConstants.FAILED;
         }
-        return StringUtils.EMPTY;
     }
 
     @Override
     public String getSingleImage(Long messageId, String customId) {
         Map<String, String> headerMap = Maps.newHashMap();
-        headerMap.put("authorization", MidjourneyContants.AUTHORIZATION);
+        headerMap.put("authorization", MidjourneyConstants.AUTHORIZATION);
         headerMap.put("Content-Type", "application/json");
         SingleImageRequest req = buildSingleImageRequest(messageId, customId);
         String reqJson = JSON.toJSONString(req);
-        log.info("===reqJson is {}", reqJson);
+        log.info("===[IMidjourneyService#getSingleImage] reqJson is {}", reqJson);
         try {
-            String res = HttpUtil.doProxyPostJson(MidjourneyContants.API_URL, headerMap, reqJson);
-            return res;
+            String res = HttpUtil.doProxyPostJson(MidjourneyConstants.API_URL, headerMap, reqJson);
+            if(!StringUtils.isEmpty(res)){
+                log.error("!==[IMidjourneyService#getSingleImage] error, result={}, request={}", res, reqJson);
+                throw new BusinessException("调用MJ单图失败，结果返回异常");
+            }
+            return MidjourneyConstants.SUCCESS;
         } catch (Exception e) {
-            log.error("VolcanoTtsService generateVoice error,request={}", reqJson, e);
+            return MidjourneyConstants.FAILED;
         }
-        return StringUtils.EMPTY;
     }
 
     private InteractionsRequest buildInteractionsRequest(String promptText) {
         InteractionsRequest request = new InteractionsRequest();
         request.setType(2);
-        request.setApplicationId("936929561302675456");
-        request.setGuildId("1073445198857773096");
-        request.setChannelId("1073445808353071104");
-        request.setSessionId("500c14391ba2dba4f310a08a2891463b");
+        request.setApplicationId(MidjourneyConstants.APPLICATION_ID);
+        request.setGuildId(MidjourneyConstants.GUILD_ID);
+        request.setChannelId(MidjourneyConstants.CHANNEL_ID);
+        request.setSessionId(MidjourneyConstants.SESSION_ID);
         DataModel data = new DataModel();
-        data.setVersion("1077969938624553050");
-        data.setId("938956540159881230");
+        data.setVersion(MidjourneyConstants.DATA_VERSION);
+        data.setId(MidjourneyConstants.DATA_ID);
         data.setName("imagine");
         data.setType(1);
         OptionModel option = new OptionModel();
@@ -78,38 +86,18 @@ public class MidjourneyServiceImpl implements IMidjourneyService {
         option.setValue(promptText);
 
         data.setOptions(Lists.newArrayList(option));
-        ApplicationCommandModel applicationCommandModel = new ApplicationCommandModel();
-        applicationCommandModel.setId("938956540159881230");
-        applicationCommandModel.setApplicationId("936929561302675456");
-        applicationCommandModel.setVersion("1077969938624553050");
-        applicationCommandModel.setType(1);
-        applicationCommandModel.setNsfw(false);
-        applicationCommandModel.setName("imagine");
-        applicationCommandModel.setDescription("Create images with Midjourney");
-        applicationCommandModel.setDmPermission(true);
-        OptionModel applicationOption = new OptionModel();
-        applicationOption.setType(3);
-        applicationOption.setName("prompt");
-        applicationOption.setDescription("The prompt to imagine");
-        applicationOption.setRequired(true);
-
-        applicationCommandModel.setOptions(Lists.newArrayList(applicationOption));
-
-        data.setApplicationCommand(applicationCommandModel);
-        data.setAttachments(Lists.newArrayList());
         request.setData(data);
         return request;
 
     }
 
-
     private SingleImageRequest buildSingleImageRequest(Long messageId, String customId){
         SingleImageRequest request = new SingleImageRequest();
         request.setType(3);
-        request.setApplicationId("936929561302675456");
-        request.setGuildId("1073445198857773096");
-        request.setChannelId("1073445808353071104");
-        request.setSessionId("500c14391ba2dba4f310a08a2891463b");
+        request.setApplicationId(MidjourneyConstants.APPLICATION_ID);
+        request.setGuildId(MidjourneyConstants.GUILD_ID);
+        request.setChannelId(MidjourneyConstants.CHANNEL_ID);
+        request.setSessionId(MidjourneyConstants.SESSION_ID);
         request.setMessageId(messageId);
         SingleImageDataModel data = new SingleImageDataModel();
         data.setCustomId(customId);

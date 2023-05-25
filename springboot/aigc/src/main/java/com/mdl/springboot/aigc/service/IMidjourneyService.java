@@ -12,7 +12,6 @@ import java.util.Map;
 public interface IMidjourneyService {
     /**
      * 生成图像
-     *
      * @param promptText 提示文本
      * @return {@link String}
      */

@@ -27,6 +27,15 @@ public class BusinessException extends RuntimeException {
 
     /**
      * 自定义消息体构造业务类异常
+     * @param message
+     */
+    public BusinessException(String message) {
+        super(message);
+        this.code = ErrorEnum.XXX.getCode();
+    }
+
+    /**
+     * 自定义消息体构造业务类异常
      * @param error
      * @param message
      */
