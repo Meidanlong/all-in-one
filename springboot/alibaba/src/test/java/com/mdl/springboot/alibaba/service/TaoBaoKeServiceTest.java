@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 /**
- * @description:
+ * @description:淘宝客单测
  * @author: meidanlong
  * @date: 2023/6/18 2:44 PM
  */
