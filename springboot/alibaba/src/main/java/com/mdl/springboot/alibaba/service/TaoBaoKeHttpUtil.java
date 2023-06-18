@@ -1,5 +1,7 @@
 package com.mdl.springboot.alibaba.service;
 
+import com.mdl.common.domain.BusinessException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,11 +27,11 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * @description:
+ * @description:淘宝客Http调用请求工具类
  * @author: meidanlong
  * @date: 2023/5/28 5:20 PM
  */
-public class ApiTest {
+public class TaoBaoKeHttpUtil {
 
     private static final String SIGN_METHOD_MD5 = "md5";
     private static final String SIGN_METHOD_HMAC = "hmac";
@@ -42,28 +44,24 @@ public class ApiTest {
     private static final String appSecret = "6204025d82caac1736fd6b608501873a"; // 可替换为您的应用的appSecret
     private static final String sessionKey = "test"; // 必须替换为授权得到的真实有效sessionKey
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(getSellerItem());
-    }
-
-    private static String getSellerItem() throws IOException {
-        Map<String, String> params = new HashMap<String, String>();
-        // 公共参数
-        params.put("method", "taobao.time.get");
-        params.put("app_key", appKey);
-        params.put("session", sessionKey);
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        params.put("timestamp", df.format(new Date()));
-        params.put("format", "json");
-        params.put("v", "2.0");
-        params.put("sign_method", "hmac");
-        // 业务参数
-        params.put("fields", "num_iid,title,nick,price,num");
-        params.put("num_iid", "123456789");
-        // 签名参数
-        params.put("sign", signTopRequest(params, appSecret, SIGN_METHOD_HMAC));
-        // 请用API
-        return callApi(new URL(serverUrl), params);
+    public static String callApi(String method, Map<String, String> params){
+        try {
+            // 公共参数
+            params.put("method", method);
+            params.put("app_key", appKey);
+            params.put("session", sessionKey);
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            params.put("timestamp", df.format(new Date()));
+            params.put("format", "json");
+            params.put("v", "2.0");
+            params.put("sign_method", "hmac");
+            // 签名参数
+            params.put("sign", signTopRequest(params, appSecret, SIGN_METHOD_HMAC));
+            // 请用API
+            return doCallApi(new URL(serverUrl), params);
+        }catch (Exception e){
+            throw new BusinessException("淘宝客接口调用异常");
+        }
     }
 
     /**
@@ -151,7 +149,7 @@ public class ApiTest {
         return sign.toString();
     }
 
-    private static String callApi(URL url, Map<String, String> params) throws IOException {
+    private static String doCallApi(URL url, Map<String, String> params) throws IOException {
         String query = buildQuery(params, CHARSET_UTF8);
         byte[] content = {};
         if (query != null) {
