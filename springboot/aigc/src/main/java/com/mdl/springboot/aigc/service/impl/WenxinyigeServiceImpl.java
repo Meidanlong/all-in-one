@@ -29,8 +29,8 @@ public class WenxinyigeServiceImpl {
     private final static String ACCESS_TOKEN_URL="https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s";
     private final static String TXT_IMAGE_URL="https://aip.baidubce.com/rpc/2.0/ernievilg/v1/txt2imgv2?access_token=%s";
     private final static String GET_IMAGE_URL="https://aip.baidubce.com/rpc/2.0/ernievilg/v1/getImgv2?access_token=%s";
-    private final static String API_KEY = "0bNqbGV8O03h4EdnwtuydxUH";
-    private final static String SECRET_KEY = "PdHjA8qOgyuG2smsgFzDMRqK6hRSpCok";
+    private final static String API_KEY = "";
+    private final static String SECRET_KEY = "";
 
     public String getAccessToken(){
         String url = String.format(ACCESS_TOKEN_URL, API_KEY, SECRET_KEY);
