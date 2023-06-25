@@ -1,4 +1,4 @@
-package com.mdl.springboot.aigc.service.impl;
+package com.mdl.springboot.aigc.service.midjourney.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
@@ -11,7 +11,7 @@ import com.mdl.springboot.aigc.domain.midjourney.InteractionsRequest;
 import com.mdl.springboot.aigc.domain.midjourney.OptionModel;
 import com.mdl.springboot.aigc.domain.midjourney.SingleImageDataModel;
 import com.mdl.springboot.aigc.domain.midjourney.SingleImageRequest;
-import com.mdl.springboot.aigc.service.IMidjourneyService;
+import com.mdl.springboot.aigc.service.midjourney.IMidjourneyService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;

@@ -1,17 +1,18 @@
-package com.mdl.springboot.aigc.service.impl;
+package com.mdl.springboot.aigc.service.wenxin.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.mdl.common.domain.BusinessException;
 import com.mdl.common.utils.HttpUtil;
 import com.mdl.common.utils.StringUtil;
 import com.mdl.springboot.aigc.domain.enums.WenxinyigeImageRatioEnum;
 import com.mdl.springboot.aigc.domain.wenxin.*;
+import com.mdl.springboot.aigc.service.wenxin.IAccessTokenService;
+import com.mdl.springboot.aigc.service.wenxin.IWenxinyigeService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -26,29 +27,17 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class WenxinyigeServiceImpl {
+public class WenxinyigeServiceImpl implements IWenxinyigeService {
 
-    private final static String ACCESS_TOKEN_URL="https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s";
     private final static String TXT_IMAGE_URL="https://aip.baidubce.com/rpc/2.0/ernievilg/v1/txt2imgv2?access_token=%s";
     private final static String GET_IMAGE_URL="https://aip.baidubce.com/rpc/2.0/ernievilg/v1/getImgv2?access_token=%s";
     private final static String TASK_STATUS_SUCCESS ="SUCCESS";
-    private final static String API_KEY = "";
-    private final static String SECRET_KEY = "";
 
-    public String getAccessToken(){
-        String url = String.format(ACCESS_TOKEN_URL, API_KEY, SECRET_KEY);
-        String response = HttpUtil.doPost(url);
-        if(StringUtil.isEmpty(response)){
-            throw new BusinessException("文心获取accessToken异常");
-        }
-        log.info("[IWenxinyigeService#getAccessToken] - response={}", response);
-        AccessTokenDTO accessToken = JSON.parseObject(response, AccessTokenDTO.class);
-        // todo accessToken缓存处理
-        return accessToken.getAccessToken();
-    }
+    @Resource
+    private IAccessTokenService accessTokenService;
 
     public Long txt2img(Txt2ImgDTO req){
-        String url = String.format(TXT_IMAGE_URL, getAccessToken());
+        String url = String.format(TXT_IMAGE_URL, accessTokenService.getAccessToken());
         Txt2ImgReqDTO txt2ImgReqDTO = buildTxt2ImgReqDTO(req);
         String response = HttpUtil.doPostJson(url, commonHeaders(), JSON.toJSONString(txt2ImgReqDTO));
         log.info("[IWenxinyigeService#txt2img] - response={}", response);
@@ -63,7 +52,7 @@ public class WenxinyigeServiceImpl {
     }
 
     public ImageTaskRespDTO getImage(Long taskId){
-        String url = String.format(GET_IMAGE_URL, getAccessToken());
+        String url = String.format(GET_IMAGE_URL, accessTokenService.getAccessToken());
         Map<String, Long> params = Collections.singletonMap("task_id", taskId);
         String response = HttpUtil.doPostJson(url, commonHeaders(), JSON.toJSONString(params));
         log.info("[IWenxinyigeService#getImage] - response={}", response);
@@ -103,10 +92,6 @@ public class WenxinyigeServiceImpl {
     @SneakyThrows
     public static void main(String[] args) {
         WenxinyigeServiceImpl service = new WenxinyigeServiceImpl();
-
-        // 获取accesstoken
-//        String accessToken = service.getAccessToken();
-//        System.out.println(accessToken);
 
         // 文生图
         Txt2ImgDTO req = new Txt2ImgDTO();

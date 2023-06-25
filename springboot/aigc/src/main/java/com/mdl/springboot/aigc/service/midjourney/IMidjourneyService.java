@@ -1,4 +1,4 @@
-package com.mdl.springboot.aigc.service;
+package com.mdl.springboot.aigc.service.midjourney;
 
 import java.util.List;
 import java.util.Map;

@@ -2,7 +2,7 @@ package com.mdl.springboot.aigc.message;
 
 import com.mdl.common.executor.BizExecutor;
 import com.mdl.springboot.aigc.AigcApplication;
-import com.mdl.springboot.aigc.service.IMidjourneyService;
+import com.mdl.springboot.aigc.service.midjourney.IMidjourneyService;
 import com.mdl.springboot.aigc.utils.MidjourneyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

@@ -1,7 +1,7 @@
 package com.mdl.springboot.aigc.controller;
 
 import com.mdl.common.domain.BaseResponse;
-import com.mdl.springboot.aigc.service.IMidjourneyService;
+import com.mdl.springboot.aigc.service.midjourney.IMidjourneyService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
