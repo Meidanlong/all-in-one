@@ -1,8 +1,8 @@
 package com.mdl.springboot.aigc.config;
 
 import com.mdl.springboot.aigc.constant.MidjourneyConstants;
-import com.mdl.springboot.aigc.message.ImageGenerateComplete;
-import com.mdl.springboot.aigc.message.SingleImageComplete;
+import com.mdl.springboot.aigc.message.GridImageListener;
+import com.mdl.springboot.aigc.message.UpscalerImageListener;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +18,8 @@ public class DiscordConfig {
                 // 添加自己的代理
 //                .setProxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(HttpUtils.proxy_hostname, HttpUtils.proxy_port)))
                 .setToken(MidjourneyConstants.ROBOT_TOKEN)
-                .addListener(new ImageGenerateComplete())
-                .addListener(new SingleImageComplete())
+                .addListener(new GridImageListener())
+                .addListener(new UpscalerImageListener())
                 .login()
                 .join();
         return api;

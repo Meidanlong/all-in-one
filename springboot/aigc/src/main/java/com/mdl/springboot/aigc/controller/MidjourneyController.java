@@ -23,6 +23,6 @@ public class MidjourneyController {
 
     @RequestMapping(value = "/imagine", method = {RequestMethod.POST})
     public BaseResponse generateImage(@RequestParam String promptText) {
-        return BaseResponse.success(midjourneyService.generateImage(promptText));
+        return BaseResponse.success(midjourneyService.getGridImage(promptText));
     }
 }

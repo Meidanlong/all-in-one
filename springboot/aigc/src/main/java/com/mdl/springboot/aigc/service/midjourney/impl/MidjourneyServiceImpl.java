@@ -27,7 +27,7 @@ import java.util.Map;
 public class MidjourneyServiceImpl implements IMidjourneyService {
 
     @Override
-    public String generateImage(String promptText) {
+    public String getGridImage(String promptText) {
         Map<String, String> headerMap = Maps.newHashMap();
         // 可配置多账号轮询
         headerMap.put("authorization", MidjourneyConstants.AUTHORIZATION);
@@ -49,7 +49,7 @@ public class MidjourneyServiceImpl implements IMidjourneyService {
     }
 
     @Override
-    public String getSingleImage(Long messageId, String customId) {
+    public String getUpscalerImage(Long messageId, String customId) {
         Map<String, String> headerMap = Maps.newHashMap();
         headerMap.put("authorization", MidjourneyConstants.AUTHORIZATION);
         headerMap.put("Content-Type", "application/json");

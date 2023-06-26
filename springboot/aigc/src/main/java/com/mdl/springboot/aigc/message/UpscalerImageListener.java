@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 
 @Slf4j
 @Component
-public class SingleImageComplete implements MessageCreateListener {
+public class UpscalerImageListener implements MessageCreateListener {
 
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
@@ -29,7 +29,7 @@ public class SingleImageComplete implements MessageCreateListener {
                     // 获取图片详情
                     MessageAttachment image = event.getMessage().getAttachments().get(0);
                     String discordImageUrl = image.getUrl().toString();
-                    SingleImageComplete self = AigcApplication.getBean(this);
+                    UpscalerImageListener self = AigcApplication.getBean(this);
                     BizExecutor.getInstance().getThreadPool().execute(() -> self.uploadImageAndSendMsg(message.getId(), prompt, discordImageUrl));
                 }
             }

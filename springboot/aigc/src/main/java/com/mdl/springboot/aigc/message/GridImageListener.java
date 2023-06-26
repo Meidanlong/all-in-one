@@ -21,7 +21,7 @@ import java.util.NoSuchElementException;
 
 @Slf4j
 @Component
-public class ImageGenerateComplete implements MessageCreateListener {
+public class GridImageListener implements MessageCreateListener {
 
     @Autowired
     private IMidjourneyService midjourneyService;
@@ -43,7 +43,7 @@ public class ImageGenerateComplete implements MessageCreateListener {
                     LowLevelComponent u1 = actionRow.getComponents().stream().filter(c -> c.asButton().get().getLabel().get().equals("U1")).findFirst().get();
                     String customId = u1.asButton().get().getCustomId().get();
                     String prompt = MidjourneyUtil.getReturnPrompt(message.getContent(), true);
-                    ImageGenerateComplete self = AigcApplication.getBean(this);
+                    GridImageListener self = AigcApplication.getBean(this);
                     BizExecutor.getInstance().getThreadPool().execute(() -> self.generateSingleImage(messageId, prompt, customId));
                 }
             }
@@ -70,7 +70,7 @@ public class ImageGenerateComplete implements MessageCreateListener {
             return;
         }
         // 获取单张图片
-        midjourneyService.getSingleImage(messageId, customId);
+        midjourneyService.getUpscalerImage(messageId, customId);
     }
 
 }

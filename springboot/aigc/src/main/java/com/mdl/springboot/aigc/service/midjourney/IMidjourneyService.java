@@ -1,8 +1,5 @@
 package com.mdl.springboot.aigc.service.midjourney;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * Midjourney服务
  *
@@ -15,7 +12,7 @@ public interface IMidjourneyService {
      * @param promptText 提示文本
      * @return {@link String}
      */
-    String generateImage(String promptText);
+    String getGridImage(String promptText);
 
     /**
      * 获取单个图片
@@ -23,6 +20,6 @@ public interface IMidjourneyService {
      * @param customId
      * @return
      */
-    String getSingleImage(Long messageId, String customId);
+    String getUpscalerImage(Long messageId, String customId);
 
 }
