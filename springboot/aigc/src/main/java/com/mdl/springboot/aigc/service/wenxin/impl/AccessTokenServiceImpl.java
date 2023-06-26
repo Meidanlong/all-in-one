@@ -28,8 +28,8 @@ import java.util.stream.Collectors;
 public class AccessTokenServiceImpl implements IAccessTokenService {
 
     private final static String ACCESS_TOKEN_URL="https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s";
-    private final static String API_KEY = "";
-    private final static String SECRET_KEY = "";
+    private final static String API_KEY = "0bNqbGV8O03h4EdnwtuydxUH";
+    private final static String SECRET_KEY = "PdHjA8qOgyuG2smsgFzDMRqK6hRSpCok";
 
     public String getAccessToken(){
         String url = String.format(ACCESS_TOKEN_URL, API_KEY, SECRET_KEY);
