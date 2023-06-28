@@ -16,13 +16,13 @@ public class ChatGptServiceImpl {
 
     public static void main(String[] args) throws Exception {
         //原始地址
-      String apiUrl = "http://www.xuanyibeikafei.xyz/cross/wall/post?url=https://api.openai.com/v1/chat/completions";
-        String apiKey = "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";
+        String apiUrl = "https://api.openai.com/v1/chat/completions";
+        String apiKey = "";
         List<JSONObject> msgData = new ArrayList<>();
         msgData.add(
                 new JSONObject()
                         .fluentPut("role", "user")
-                        .fluentPut("content", "夸奖我一下")
+                        .fluentPut("content", "200字夸奖我一下")
         );
         JSONObject req = new JSONObject()
                 // 完成时要生成的最大token数量。
