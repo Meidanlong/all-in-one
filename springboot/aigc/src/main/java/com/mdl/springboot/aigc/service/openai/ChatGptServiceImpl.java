@@ -22,7 +22,7 @@ public class ChatGptServiceImpl {
         msgData.add(
                 new JSONObject()
                         .fluentPut("role", "user")
-                        .fluentPut("content", "200字夸奖我一下")
+                        .fluentPut("content", "500字夸奖我一下")
         );
         JSONObject req = new JSONObject()
                 // 完成时要生成的最大token数量。
