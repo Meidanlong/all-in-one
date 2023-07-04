@@ -22,14 +22,14 @@ public class ChatGptServiceImpl {
         msgData.add(
                 new JSONObject()
                         .fluentPut("role", "user")
-                        .fluentPut("content", "500字夸奖我一下")
+                        .fluentPut("content", "200字夸奖我一下")
         );
         JSONObject req = new JSONObject()
                 // 完成时要生成的最大token数量。
                 // 提示的token计数加上max_tokens不能超过模型的上下文长度。大多数模型的上下文长度为2048个token（最新模型除外，支持4096个）。
                 .fluentPut("max_tokens", 512)
-                .fluentPut("model", "gpt-3.5-turbo")
-//                .fluentPut("model", "gpt-4")
+//                .fluentPut("model", "gpt-3.5-turbo")
+                .fluentPut("model", "gpt-4")
                 // 可选 默认值1
                 // 使用什么样的采样温度，介于0和2之间。较高的值（如0.8）将使输出更加随机，而较低的值（例如0.2）将使其更加集中和确定。
                 // 通常建议更改它或top_p，但不能同时更改两者。

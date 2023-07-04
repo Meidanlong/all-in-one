@@ -47,7 +47,7 @@ public class ChatGptSubscriber implements Subscriber {
         //}
         // GPT返回
         // {
-        //  "id": "chatcmpl-7WHp5USDDqtzkqJd4EYj97NlmC6DO",
+        //  "id": "chatcmpl-7WHp5USDDqtzkqXXXXXXXXXXXXX",
         //  "object": "chat.completion.chunk",
         //  "created": 1687929363,
         //  "model": "gpt-3.5-turbo-0613",
@@ -60,6 +60,7 @@ public class ChatGptSubscriber implements Subscriber {
         //      "finish_reason": null
         //    }
         //  ]
+        // }
         String bodyDatas = new String(JSON.parseObject(JSON.toJSONString(o)).getBytes("bodyPartBytes"));
         log.info(">>>>> onNext  {}", bodyDatas);
         boolean firstLine = false;
