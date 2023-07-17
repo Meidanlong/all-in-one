@@ -11,6 +11,7 @@ import com.mdl.springboot.aigc.service.wenxin.IWenxinyigeService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -31,7 +32,6 @@ public class WenxinyigeServiceImpl implements IWenxinyigeService {
 
     private final static String TXT_IMAGE_URL="https://aip.baidubce.com/rpc/2.0/ernievilg/v1/txt2imgv2?access_token=%s";
     private final static String GET_IMAGE_URL="https://aip.baidubce.com/rpc/2.0/ernievilg/v1/getImgv2?access_token=%s";
-    private final static String TASK_STATUS_SUCCESS ="SUCCESS";
 
     @Resource
     private IAccessTokenService accessTokenService;
@@ -86,37 +86,6 @@ public class WenxinyigeServiceImpl implements IWenxinyigeService {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         return headers;
-    }
-
-
-    @SneakyThrows
-    public static void main(String[] args) {
-        WenxinyigeServiceImpl service = new WenxinyigeServiceImpl();
-
-        // 文生图
-        Txt2ImgDTO req = new Txt2ImgDTO();
-        req.setPrompt("电影光，华丽高光，电影质感，一张逼真的照片，电影场面，在古代市场和繁忙的街道上，一个25岁的亚洲男性，穿着中国古代长袍，黑色大背发，小眼睛，正常的鼻子，小嘴，一张小脸，看起来好奇和坚定，正在观察市场和思考。");
-        req.setImageNum(4);
-        req.setChangeDegree(7);
-        req.setImageRatio(WenxinyigeImageRatioEnum._1024x1024);
-        Long taskId = service.txt2img(req);
-
-        TimeUnit.MILLISECONDS.sleep(1000);
-        // 轮询
-        long curTime = System.currentTimeMillis();
-        while(System.currentTimeMillis()-curTime<=3*60*1000){
-            // 获取图片进度及结果
-            ImageTaskRespDTO imageTask = service.getImage(taskId);
-            if(imageTask != null && TASK_STATUS_SUCCESS.equals(imageTask.getTaskStatus())){
-                List<String> imageList = new ArrayList<>();
-                imageTask.getSubTaskResultList().stream().forEach(subTask -> imageList.addAll(subTask.getFinalImageList().stream().map(ImageDetailRespDTO::getImageUrl).collect(Collectors.toList())));
-                log.info("imageList = {}", imageList);
-                return;
-            }
-            TimeUnit.MILLISECONDS.sleep(1000);
-        }
-
-
     }
 
 }

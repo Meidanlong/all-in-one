@@ -30,17 +30,21 @@ public class AccessTokenServiceImpl implements IAccessTokenService {
     private final static String ACCESS_TOKEN_URL="https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s";
     private final static String API_KEY = "";
     private final static String SECRET_KEY = "";
+    private String accessToken = null;
 
     public String getAccessToken(){
-        String url = String.format(ACCESS_TOKEN_URL, API_KEY, SECRET_KEY);
-        String response = HttpUtil.doPost(url);
-        if(StringUtil.isEmpty(response)){
-            throw new BusinessException("文心获取accessToken异常");
+        if(StringUtil.isEmpty(accessToken)){
+            String url = String.format(ACCESS_TOKEN_URL, API_KEY, SECRET_KEY);
+            String response = HttpUtil.doPost(url);
+            if(StringUtil.isEmpty(response)){
+                throw new BusinessException("文心获取accessToken异常");
+            }
+            log.info("[IWenxinyigeService#getAccessToken] - response={}", response);
+            AccessTokenDTO accessTokenDTO = JSON.parseObject(response, AccessTokenDTO.class);
+            // todo accessToken缓存处理
+            accessToken = accessTokenDTO.getAccessToken();
         }
-        log.info("[IWenxinyigeService#getAccessToken] - response={}", response);
-        AccessTokenDTO accessToken = JSON.parseObject(response, AccessTokenDTO.class);
-        // todo accessToken缓存处理
-        return accessToken.getAccessToken();
+        return accessToken;
     }
 
 

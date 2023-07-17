@@ -13,7 +13,7 @@ public class ImageDetailRespDTO extends BaseObject {
 
     private Integer height;
 
-    private String imageUrl;
+    private String imgUrl;
 
-    private String ImageApproveConclusion;
+    private String imgApproveConclusion;
 }

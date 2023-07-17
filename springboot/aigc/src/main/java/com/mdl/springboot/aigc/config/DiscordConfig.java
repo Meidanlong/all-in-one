@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DiscordConfig {
 
-    @Bean
+//    @Bean
     public DiscordApi discordApi(){
         // Discord API
         DiscordApi api = new DiscordApiBuilder()

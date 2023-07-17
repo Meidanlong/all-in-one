@@ -26,7 +26,7 @@ public class WenxinyiyanServiceImpl {
     public static void main(String[] args) throws Exception {
         //原始地址
         String apiUrl = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/eb-instant?access_token=%s";
-        String accessToken = "24.681197b35ae7ee33e4f84c3322fdf2f7.2592000.1690363202.282335-32920967";
+        String accessToken = "";
         apiUrl = String.format(apiUrl, accessToken);
         List<JSONObject> msgData = new ArrayList<>();
         msgData.add(
