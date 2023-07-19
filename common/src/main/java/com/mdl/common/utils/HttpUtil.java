@@ -19,6 +19,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -169,6 +170,12 @@ public class HttpUtil {
             }
         }
         return resultString;
+    }
+
+    public static Map<String, String> commonHeaders(){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        return headers;
     }
 
     private static BasicHeader[] toHeaders(Map<String, String> headers){

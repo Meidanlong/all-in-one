@@ -39,7 +39,7 @@ public class WenxinyigeServiceImpl implements IWenxinyigeService {
     public Long txt2img(Txt2ImgDTO req){
         String url = String.format(TXT_IMAGE_URL, accessTokenService.getAccessToken());
         Txt2ImgReqDTO txt2ImgReqDTO = buildTxt2ImgReqDTO(req);
-        String response = HttpUtil.doPostJson(url, commonHeaders(), JSON.toJSONString(txt2ImgReqDTO));
+        String response = HttpUtil.doPostJson(url, HttpUtil.commonHeaders(), JSON.toJSONString(txt2ImgReqDTO));
         log.info("[IWenxinyigeService#txt2img] - response={}", response);
         if(StringUtil.isEmpty(response)){
             throw new BusinessException("文心一格文生图异常");
@@ -54,7 +54,7 @@ public class WenxinyigeServiceImpl implements IWenxinyigeService {
     public ImageTaskRespDTO getImage(Long taskId){
         String url = String.format(GET_IMAGE_URL, accessTokenService.getAccessToken());
         Map<String, Long> params = Collections.singletonMap("task_id", taskId);
-        String response = HttpUtil.doPostJson(url, commonHeaders(), JSON.toJSONString(params));
+        String response = HttpUtil.doPostJson(url, HttpUtil.commonHeaders(), JSON.toJSONString(params));
         log.info("[IWenxinyigeService#getImage] - response={}", response);
         if(StringUtil.isEmpty(response)){
             throw new BusinessException("文心一格获取图片接口异常");
@@ -80,12 +80,6 @@ public class WenxinyigeServiceImpl implements IWenxinyigeService {
         txt2ImgReqDTO.setUrl(txt2ImgDTO.getUrl());
         txt2ImgReqDTO.setChangeDegree(txt2ImgDTO.getChangeDegree());
         return txt2ImgReqDTO;
-    }
-
-    private Map commonHeaders(){
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        return headers;
     }
 
 }
