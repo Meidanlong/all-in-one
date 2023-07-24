@@ -10,5 +10,7 @@ public class Test {
         Article article = courseFactory.getArticle();
         video.produce();
         article.produce();
+
+        courseFactory = new PythonCourseFactory();
     }
 }
