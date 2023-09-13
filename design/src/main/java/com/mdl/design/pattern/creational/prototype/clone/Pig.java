@@ -8,7 +8,6 @@ import java.util.Date;
 public class Pig implements Cloneable{
     private String name;
     private Date birthday;
-
     public Pig(String name, Date birthday) {
         this.name = name;
         this.birthday = birthday;

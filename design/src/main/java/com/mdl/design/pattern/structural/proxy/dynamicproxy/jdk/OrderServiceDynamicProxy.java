@@ -23,9 +23,6 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
         return Proxy.newProxyInstance(cls.getClassLoader(),cls.getInterfaces(),this);
     }
 
-
-
-
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object argObject = args[0];
