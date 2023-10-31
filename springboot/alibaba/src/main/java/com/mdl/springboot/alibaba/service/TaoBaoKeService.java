@@ -12,6 +12,11 @@ import java.util.Map;
  * @description:淘宝客服务
  * @author: meidanlong
  * @date: 2023/6/18 2:10 PM
+ *
+ *
+ * material_id说明：https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a
+ * 综合	女装	食品	美妆个护	家居家装	母婴
+ * 27446	27448	27451	27453	27798	27454
  */
 @Service
 public class TaoBaoKeService {
@@ -33,9 +38,10 @@ public class TaoBaoKeService {
      * 物料精选
      * @return
      */
-    public String optionalMaterial(){
+    public String optionalMaterial(String searchWord){
         Map<String, String> params = new HashMap<>();
         params.put("adzone_id", TaoBaoKeConstant.ADZONE_ID);
+        params.put("q", searchWord);
         // TODO: 2023/6/18 转换接收对象
         return TaoBaoKeHttpUtil.callApi(TaoBaoKeConstant.MATERIAL_OPTIONAL_METHOD, params);
     }
@@ -83,6 +89,22 @@ public class TaoBaoKeService {
         }
         // TODO: 2023/6/18 转换接收对象
         return TaoBaoKeHttpUtil.callApi(TaoBaoKeConstant.ITEM_CATS_METHOD, params);
+    }
+
+    /**
+     * 淘宝客-推广者-物料精选
+     *
+     * 不需用户授权
+     * https://open.taobao.com/api.htm?docId=33947&docType=2&scopeId=16518
+     * @param materialId
+     * @return
+     */
+    public String getOptimusMaterial(String materialId){
+        Map<String, String> params = new HashMap<>();
+        params.put("adzone_id", TaoBaoKeConstant.ADZONE_ID);
+        params.put("material_id", materialId);
+        // TODO: 2023/6/18 转换接收对象
+        return TaoBaoKeHttpUtil.callApi(TaoBaoKeConstant.OPTIMUS_MATERIAL_METHOD, params);
     }
 
 }

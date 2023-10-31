@@ -23,6 +23,10 @@ public class TaoBaoKeConstant {
      */
     public static final String ITEM_CATS_METHOD = "taobao.itemcats.get";
     /**
+     * 淘宝客-推广者-物料精选
+     */
+    public static final String OPTIMUS_MATERIAL_METHOD = "taobao.tbk.dg.optimus.material";
+    /**
      * 推广位ID
      */
     public static final String ADZONE_ID = "115107550273";
