@@ -20,10 +20,10 @@ public class AudioConversion {
         File source = new File("java/src/main/java/com/mdl/java/audio/ori-amr.amr");   // 源amr文件
         File mp3Target = new File("java/src/main/java/com/mdl/java/audio/new-p3.mp3");   // 目标mp3文件
         convertAudio(source, mp3Target);
-        System.out.println("finished conversion amr -> mp3");
+        System.out.println("conversion finished amr -> mp3");
         File amrTarget = new File("java/src/main/java/com/mdl/java/audio/new-amr.amr");  // 目标amr文件
         convertAudio(mp3Target, amrTarget);
-        System.out.println("finished conversion mp3 -> amr");
+        System.out.println("conversion finished mp3 -> amr");
     }
     public static void convertAudio(File source, File target) {
         AudioAttributes audio = new AudioAttributes();
