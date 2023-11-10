@@ -1,11 +1,9 @@
 package com.mdl.java.audio;
 
-import lombok.extern.slf4j.Slf4j;
 import ws.schild.jave.AudioAttributes;
 import ws.schild.jave.Encoder;
 import ws.schild.jave.EncoderException;
 import ws.schild.jave.EncodingAttributes;
-import ws.schild.jave.InputFormatException;
 import ws.schild.jave.MultimediaObject;
 
 import java.io.File;
@@ -16,31 +14,29 @@ import java.io.File;
  * @date 2023年11月09日
  * @version: 1.0
  */
-public class AudioTransfer {
+public class AudioConversion {
 
     public static void main(String[] args) throws Exception {
-        File source = new File("/Users/meidanlong/Desktop/aamr.amr");   //源文件
-        File mp3Target = new File("/Users/meidanlong/Desktop/bmp3.mp3");   //目标文件
-        audioTransfer(source, mp3Target,"mp3");
-        System.out.println("finished transfer mp3");
-        File amrTarget = new File("/Users/meidanlong/Desktop/newaamr.amr");
-        audioTransfer(mp3Target, amrTarget,"mp3");
-        System.out.println("finished transfer amr");
+        File source = new File("~/Desktop/ori-amr.amr");   // 源amr文件
+        File mp3Target = new File("~/Desktop/new-p3.mp3");   // 目标mp3文件
+        convertAudio(source, mp3Target);
+        System.out.println("finished transfer amr -> mp3");
+        File amrTarget = new File("~/Desktop/new-amr.amr");  // 目标amr文件
+        convertAudio(mp3Target, amrTarget);
+        System.out.println("finished transfer mp3 -> amr");
     }
-    public static void audioTransfer(File source, File target, String format) throws InputFormatException {
+    public static void convertAudio(File source, File target) {
         AudioAttributes audio = new AudioAttributes();
         audio.setCodec("libmp3lame");
         EncodingAttributes attrs = new EncodingAttributes();
-        attrs.setFormat(format);
+        attrs.setFormat("mp3");
         attrs.setAudioAttributes(audio);
         Encoder encoder = new Encoder();
         try {
-
             MultimediaObject multimediaObject  = new MultimediaObject(source);
             encoder.encode(multimediaObject,target, attrs);
         } catch (IllegalArgumentException | EncoderException e) {
             e.printStackTrace();
         }
-
     }
 }
