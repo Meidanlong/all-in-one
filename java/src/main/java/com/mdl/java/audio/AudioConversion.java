@@ -16,14 +16,14 @@ import java.io.File;
  */
 public class AudioConversion {
 
-    public static void main(String[] args) throws Exception {
-        File source = new File("~/Desktop/ori-amr.amr");   // 源amr文件
-        File mp3Target = new File("~/Desktop/new-p3.mp3");   // 目标mp3文件
+    public static void main(String[] args) {
+        File source = new File("java/src/main/java/com/mdl/java/audio/ori-amr.amr");   // 源amr文件
+        File mp3Target = new File("java/src/main/java/com/mdl/java/audio/new-p3.mp3");   // 目标mp3文件
         convertAudio(source, mp3Target);
-        System.out.println("finished transfer amr -> mp3");
-        File amrTarget = new File("~/Desktop/new-amr.amr");  // 目标amr文件
+        System.out.println("finished conversion amr -> mp3");
+        File amrTarget = new File("java/src/main/java/com/mdl/java/audio/new-amr.amr");  // 目标amr文件
         convertAudio(mp3Target, amrTarget);
-        System.out.println("finished transfer mp3 -> amr");
+        System.out.println("finished conversion mp3 -> amr");
     }
     public static void convertAudio(File source, File target) {
         AudioAttributes audio = new AudioAttributes();
