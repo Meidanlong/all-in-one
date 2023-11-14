@@ -37,17 +37,25 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/ws.schild/jave-core -->
-        <dependency>
-            <groupId>ws.schild</groupId>
-            <artifactId>jave-core</artifactId>
-            <version>2.4.4</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ws.schild</groupId>-->
+<!--            <artifactId>jave-core</artifactId>-->
+<!--            <version>2.4.4</version>-->
+<!--&lt;!&ndash;            <version>3.3.1</version>&ndash;&gt;-->
+<!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/ws.schild/jave-native-osx64 -->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/ws.schild/jave-native-osx64 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>ws.schild</groupId>-->
+<!--            <artifactId>jave-native-osx64</artifactId>-->
+<!--            <version>2.4.4</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>ws.schild</groupId>
-            <artifactId>jave-native-osx64</artifactId>
+            <artifactId>jave-all-deps</artifactId>
             <version>2.4.4</version>
+            <!--<version>3.3.1</version>-->
         </dependency>
 
     </dependencies>
