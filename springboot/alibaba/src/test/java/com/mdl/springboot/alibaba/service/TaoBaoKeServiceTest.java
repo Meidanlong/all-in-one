@@ -65,7 +65,7 @@ public class TaoBaoKeServiceTest {
 
     @Test
     public void getOptimusMaterial() {
-        String result = taoBaoKeService.getOptimusMaterial("27446");
+        String result = taoBaoKeService.getOptimusMaterial("27451");
         JSONArray jsonArray = JSON.parseObject(result).getJSONObject("tbk_dg_optimus_material_response").getJSONObject("result_list").getJSONArray("map_data");
         List<MaterialItem> materialItemList = jsonArray.stream().map(jo -> {
             JSONObject jsonObject = (JSONObject) jo;
