@@ -1,5 +1,6 @@
 package com.mdl.springboot.alibaba.domain;
 
+
 /**
  * @author meidanlong
  * @description: TODO
@@ -26,6 +27,19 @@ public class TaoBaoKeConstant {
      * 淘宝客-推广者-物料精选
      */
     public static final String OPTIMUS_MATERIAL_METHOD = "taobao.tbk.dg.optimus.material";
+
+    /**
+     * PID
+     */
+    public static final String PID = "mm_4040323709_2850350058_115107550273";
+    /**
+     * 账号id
+     */
+    public static final String ACCOUNT_ID = "4040323709";
+    /**
+     * 媒体id
+     */
+    public static final String SITE_ID = "2850350058";
     /**
      * 推广位ID
      */
