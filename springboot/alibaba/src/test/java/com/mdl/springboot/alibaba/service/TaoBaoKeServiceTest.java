@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -65,7 +67,7 @@ public class TaoBaoKeServiceTest {
 
     @Test
     public void getOptimusMaterial() {
-        String result = taoBaoKeService.getOptimusMaterial("27446");
+        String result = taoBaoKeService.getOptimusMaterial("27453");
         JSONArray jsonArray = JSON.parseObject(result).getJSONObject("tbk_dg_optimus_material_response").getJSONObject("result_list").getJSONArray("map_data");
         List<MaterialItem> materialItemList = jsonArray.stream().map(jo -> {
             JSONObject jsonObject = (JSONObject) jo;
@@ -80,10 +82,14 @@ public class TaoBaoKeServiceTest {
             Integer couponAmount = jsonObject.getInteger("coupon_amount");
             materialItem.setCouponAmount(couponAmount);
             // 现价
-//            BigDecimal currentPrice = new BigDecimal(zkFinalPrice).subtract(new BigDecimal(couponAmount));
-//            materialItem.setCurrentPrice(currentPrice.toString());
+            BigDecimal currentPrice = new BigDecimal(zkFinalPrice).subtract(new BigDecimal(couponAmount));
+            materialItem.setCurrentPrice(currentPrice.toString());
             String commissionRate = jsonObject.getString("commission_rate");
             materialItem.setCommissionRate(commissionRate + "%");
+            if(StringUtils.isNotEmpty(commissionRate)){
+                Double commission = currentPrice.multiply(new BigDecimal(commissionRate)).divide(new BigDecimal(100), 2, RoundingMode.DOWN).doubleValue();
+                materialItem.setCommission(commission);
+            }
             String couponShareUrl = jsonObject.getString("coupon_share_url");
             materialItem.setCouponShareUrl(HTTPS + couponShareUrl);
             String couponStartFee = jsonObject.getString("coupon_start_fee");
@@ -91,7 +97,13 @@ public class TaoBaoKeServiceTest {
             Integer volume = jsonObject.getInteger("volume");
             materialItem.setVolume(volume);
             return materialItem;
-        }).sorted(Comparator.comparingInt(MaterialItem::getVolume).reversed()).collect(Collectors.toList());
+        })
+                .filter(m -> !"https:null".equals(m.getCouponShareUrl()))
+                .sorted(Comparator.comparingInt(MaterialItem::getVolume)
+                        .thenComparingInt(MaterialItem::getCouponAmount)
+                        .thenComparingDouble(MaterialItem::getCommission)
+                        .reversed())
+                .collect(Collectors.toList());
 
         List<String> nickList = materialItemList.stream().map(MaterialItem::getNick).collect(Collectors.toList());
         log.info("getItemCats result={}", result);
@@ -123,13 +135,17 @@ class MaterialItem{
      */
     private Integer couponAmount;
     /**
-     * 现价 -- 不一定准
+     * （预估）到手价
      */
-//    private String currentPrice;
+    private String currentPrice;
     /**
      * 商品信息-佣金比率(%)
      */
     private String commissionRate;
+    /**
+     * 预计佣金
+     */
+    private Double commission;
     /**
      * 优惠券信息-优惠券起用门槛，满X元可用。如：满299元减20元
      */
@@ -200,13 +216,13 @@ class MaterialItem{
         this.volume = volume;
     }
 
-//    public String getCurrentPrice() {
-//        return currentPrice;
-//    }
-//
-//    public void setCurrentPrice(String currentPrice) {
-//        this.currentPrice = currentPrice;
-//    }
+    public String getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(String currentPrice) {
+        this.currentPrice = currentPrice;
+    }
 
     public String getNick() {
         return nick;
@@ -222,5 +238,13 @@ class MaterialItem{
 
     public void setCommissionRate(String commissionRate) {
         this.commissionRate = commissionRate;
+    }
+
+    public Double getCommission() {
+        return commission;
+    }
+
+    public void setCommission(Double commission) {
+        this.commission = commission;
     }
 }
