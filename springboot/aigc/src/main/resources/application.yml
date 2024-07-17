@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mdl-aigc
+
+volc_ak:
+volc_sk:
