@@ -28,6 +28,13 @@
             <groupId>com.mdl</groupId>
             <artifactId>common</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.mp4parser</groupId>
+            <artifactId>isoparser</artifactId>
+            <version>1.9.41</version>
+        </dependency>
+
     </dependencies>
 
 </project>
