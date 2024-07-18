@@ -15,7 +15,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -37,22 +36,23 @@ public class VolcImageServiceImpl implements IVolcImageService {
 
 
     public static void main(String[] args) {
-        String prompt = "A young woman with long red curly hair, wearing casual home clothes with a shiny jacket, comfortable sweatpants, and flat slippers, sits at the dressing table, holding makeup tools and meticulously applying concealer while adjusting beauty filters.";
-//        String roleAFace = "https://ts1.cn.mm.bing.net/th/id/R-C.301756a216f6dfd7fe0c32f5853383d6?rik=mtPhRcVGwG%2bTpA&riu=http%3a%2f%2fpic3.nipic.com%2f20090624%2f2896835_221801012_2.jpg&ehk=GbYy8yUcdyKNn4r%2bdWuaHECPuw5LaiIsJamyo%2bmeEMI%3d&risl=&pid=ImgRaw&r=0";
-        String roleAFace = "https://ts1.cn.mm.bing.net/th/id/R-C.c2932d6db8ff8f3b91e437ee0b6cc789?rik=z9EFf8Gr7DdObw&riu=http%3a%2f%2fwww.yzwhcm.com%2fuFile%2f4708%2fproduct%2f2012824192042200.jpg&ehk=7NxOExcVLi0eVFJUWvWG9zUWp8VuHa8XiOBn318UkVs%3d&risl=&pid=ImgRaw&r=0";
+        String prompt = "full body, A front-facing photo featuring two asia men. a men on the left with long black hair, the other men on the right with no hair, captured in a stable and focused manner, emphasizing clear facial expressions and detailed hair textures.";
+        String roleAFace = "https://ts1.cn.mm.bing.net/th/id/R-C.301756a216f6dfd7fe0c32f5853383d6?rik=mtPhRcVGwG%2bTpA&riu=http%3a%2f%2fpic3.nipic.com%2f20090624%2f2896835_221801012_2.jpg&ehk=GbYy8yUcdyKNn4r%2bdWuaHECPuw5LaiIsJamyo%2bmeEMI%3d&risl=&pid=ImgRaw&r=0";
+        String roleBFace = "https://ts1.cn.mm.bing.net/th/id/R-C.c2932d6db8ff8f3b91e437ee0b6cc789?rik=z9EFf8Gr7DdObw&riu=http%3a%2f%2fwww.yzwhcm.com%2fuFile%2f4708%2fproduct%2f2012824192042200.jpg&ehk=7NxOExcVLi0eVFJUWvWG9zUWp8VuHa8XiOBn318UkVs%3d&risl=&pid=ImgRaw&r=0";
+//        String roleAFace = "https://obj.pipi.cn/basicdatacrawler/basicdatacrawler//54ecded7c7e923b12dc7ed44268d926f106d4.png?imageMogr2/thumbnail/2500x2500%3E";
         VolcImageServiceImpl volcImageService = new VolcImageServiceImpl();
-//        volcImageService.generateAnimeImageV1_3("anime, ancient Chinese", "1 girl");
-//        volcImageService.generateImageV1_4("1 girl");
-        List<String> roleFaces = new ArrayList<>(Collections.singletonList(roleAFace));
-        String modelImage = "https://p26-aiop-sign.byteimg.com/tos-cn-i-vuqhorh59i/2024071714240208A2397ED4CE13948863/output-image-0~tplv-vuqhorh59i-image.jpeg?rk3s=7f9e702d&x-expires=1721283849&x-signature=LJIP7o%2FSpUbwjYmgnBHXWp62nT4%3D";
-        String base64 = volcImageService.faceSwap(modelImage, roleFaces);
-        System.out.println(base64);
-//        volcImageService.generateImageAndSwapFace(prompt, roleFaces);
+//        volcImageService.generateAnimeImageV1_3("anime, ancient Chinese", prompt);
+//        volcImageService.generateImageV1_4(prompt);
+        List<String> roleFaces = new ArrayList<>(Arrays.asList(roleAFace, roleBFace));
+//        String modelImage = "https://p26-aiop-sign.byteimg.com/tos-cn-i-vuqhorh59i/2024071714240208A2397ED4CE13948863/output-image-0~tplv-vuqhorh59i-image.jpeg?rk3s=7f9e702d&x-expires=1721283849&x-signature=LJIP7o%2FSpUbwjYmgnBHXWp62nT4%3D";
+//        String base64 = volcImageService.faceSwap(modelImage, roleFaces);
+//        System.out.println(base64);
+        volcImageService.generateImageAndSwapFace(prompt, roleFaces);
     }
 
     public void generateImageAndSwapFace(String prompt, List<String> roleFaces) {
-        String image = generateAnimeImageV1_3("anime, ancient Chinese", prompt);
-//        String image = generateImageV1_4(prompt);
+//        String image = generateAnimeImageV1_3("by Makoto Shinkai", prompt);
+        String image = generateImageV1_4(prompt);
         System.out.println(image);
         String base64 = faceSwap(image, roleFaces);
         System.out.println(base64);
@@ -145,12 +145,14 @@ public class VolcImageServiceImpl implements IVolcImageService {
         //l2r:根据人脸中心点从左往右的序号获取
         //t2b:根据人脸中心点从上往下的序号获取
         //area:根据人脸面积从大到小的序号获取（默认）
-        req.setFaceType("area");
+        req.setFaceType("l2r");
         ArrayList<VisualFaceSwapV2Request.MergeInfos> mergeInfosList = new ArrayList<>();
-        VisualFaceSwapV2Request.MergeInfos mergeInfos = new VisualFaceSwapV2Request.MergeInfos();
-        mergeInfos.setLocation(1);
-        mergeInfos.setTemplate_location(1);
-        mergeInfosList.add(mergeInfos);
+        for (int i = 1; i <= roleFaces.size(); i++) {
+            VisualFaceSwapV2Request.MergeInfos mergeInfos = new VisualFaceSwapV2Request.MergeInfos();
+            mergeInfos.setLocation(1);
+            mergeInfos.setTemplate_location(i);
+            mergeInfosList.add(mergeInfos);
+        }
         req.setMergeInfos(mergeInfosList);
         req.setDoRisk(false);
         req.setSourceSimilarity("1");
