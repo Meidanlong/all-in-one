@@ -4,16 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.mdl.common.domain.BusinessException;
 import com.mdl.common.utils.HttpUtil;
 import com.mdl.common.utils.StringUtil;
-import com.mdl.springboot.aigc.domain.enums.WenxinyigeImageRatioEnum;
-import com.mdl.springboot.aigc.domain.wenxin.*;
+import com.mdl.springboot.aigc.domain.wenxin.AccessTokenDTO;
 import com.mdl.springboot.aigc.service.wenxin.IAccessTokenService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 /**
  * 文心一格服务

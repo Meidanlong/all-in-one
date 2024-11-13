@@ -1,6 +1,5 @@
 package com.mdl.springboot.aigc.service.wenxin.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.mdl.springboot.aigc.domain.enums.WenxinyigeImageRatioEnum;
 import com.mdl.springboot.aigc.domain.wenxin.ImageDetailRespDTO;
 import com.mdl.springboot.aigc.domain.wenxin.ImageTaskRespDTO;
@@ -28,6 +27,7 @@ import java.util.stream.Collectors;
 public class WenxinyigeServiceTest extends TestCase {
 
     private final static String TASK_STATUS_SUCCESS = "SUCCESS";
+    private final static String TASK_STATUS_FAILED = "FAILED";
     @Resource
     private IWenxinyigeService wenxinyigeService;
 
@@ -43,13 +43,24 @@ public class WenxinyigeServiceTest extends TestCase {
     public void testTxt2imgThenGetImage() throws InterruptedException {
         // 文生图
         Txt2ImgDTO req = new Txt2ImgDTO();
-        req.setPrompt("电影光，华丽高光，电影质感，一张逼真的照片，电影场面，在古代市场和繁忙的街道上，一个25岁的亚洲男性，穿着中国古代长袍，黑色大背发，小眼睛，正常的鼻子，小嘴，一张小脸，看起来好奇和坚定，正在观察市场和思考。");
-        req.setImageNum(4);
-        req.setChangeDegree(7);
-        req.setImageRatio(WenxinyigeImageRatioEnum._1024x1024);
+        // 写实
+//        String pre = "电影光，华丽高光，电影质感，一张逼真的照片，电影场面，";
+        // 3d 动画
+        String pre = "迪士尼风格，CG 3D动画，动画电影插图， ";
+        // 线稿
+//        String pre = "素描动漫插画，黑白风格，";
+        // 动漫
+//        String pre = "新海诚动漫风格，日本动画，动画电影插图，";
+        String prompt = "中景镜头，侧视图，中国一栋居民楼走廊里，穿着黑色夹克，黑色裤子的寸头男人生气的指着一个穿着灰色旗袍双手叉腰的女人，两个人正在激烈的争吵弥漫着紧张的气氛，蓝灰色调，逆光（3d动画）";
+        String suf = "。 请注意：画面中一定不要出现坏手、坏脸等不符合现实世界的元素！";
+//        req.setPrompt(pre + prompt + suf);
+        req.setPrompt(pre + prompt);
+        req.setImageNum(1);
+        req.setChangeDegree(9);
+        req.setImageRatio(WenxinyigeImageRatioEnum._1280x720);
 
         List<Long> taskIdList = new ArrayList<>();
-        for(int i=0; i<5; i++){
+        for (int i = 0; i < 1; i++) {
             taskIdList.add(wenxinyigeService.txt2img(req));
         }
 
@@ -58,20 +69,25 @@ public class WenxinyigeServiceTest extends TestCase {
         Map<Long, List<String>> resultCache = new HashMap<>();
         // 轮询
         long curTime = System.currentTimeMillis();
-        while(System.currentTimeMillis()-curTime<=3*60*1000){
-            for(Long taskId : taskIdList){
+        while (System.currentTimeMillis() - curTime <= 3 * 60 * 1000) {
+            for (Long taskId : taskIdList) {
                 // 缓存获取
                 List<String> imagelist = resultCache.get(taskId);
-                if(!CollectionUtils.isEmpty(imagelist)){
+                if (!CollectionUtils.isEmpty(imagelist)) {
                     continue;
                 }
                 // 获取图片进度及结果
                 ImageTaskRespDTO imageTask = wenxinyigeService.getImage(taskId);
-                if(imageTask != null && TASK_STATUS_SUCCESS.equals(imageTask.getTaskStatus())){
-                    List<String> imageList = new ArrayList<>();
-                    imageTask.getSubTaskResultList().stream().forEach(subTask -> imageList.addAll(subTask.getFinalImageList().stream().map(ImageDetailRespDTO::getImgUrl).collect(Collectors.toList())));
-                    resultCache.put(taskId, imageList);
-                    return;
+                if (imageTask != null) {
+                    if (TASK_STATUS_SUCCESS.equals(imageTask.getTaskStatus())) {
+                        List<String> imageList = new ArrayList<>();
+                        imageTask.getSubTaskResultList().stream().forEach(subTask -> imageList.addAll(subTask.getFinalImageList().stream().map(ImageDetailRespDTO::getImgUrl).collect(Collectors.toList())));
+                        resultCache.put(taskId, imageList);
+                        return;
+                    }
+                    if (TASK_STATUS_FAILED.equals(imageTask.getTaskStatus())) {
+                        return;
+                    }
                 }
             }
             TimeUnit.MILLISECONDS.sleep(1000);

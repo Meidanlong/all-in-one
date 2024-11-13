@@ -1,20 +1,25 @@
 package com.mdl.springboot.aigc.service.huoshan.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mdl.common.domain.BusinessException;
 import com.mdl.springboot.aigc.service.huoshan.IVolcImageService;
 import com.volcengine.service.visual.IVisualService;
 import com.volcengine.service.visual.impl.VisualServiceImpl;
+import com.volcengine.service.visual.model.request.VisualEnhancePhotoV2Request;
 import com.volcengine.service.visual.model.request.VisualFaceSwapV2Request;
+import com.volcengine.service.visual.model.request.VisualImg2ImgOutpaintingRequest;
+import com.volcengine.service.visual.model.response.VisualEnhancePhotoV2Response;
 import com.volcengine.service.visual.model.response.VisualFaceSwapV2Response;
 import com.volcengine.service.visual.model.response.VisualHighAesSmartDrawingResponse;
+import com.volcengine.service.visual.model.response.VisualImg2ImgOutpaintingResponse;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,26 +34,10 @@ public class VolcImageServiceImpl implements IVolcImageService {
 
     private final static String ANIME_PROMPT_FORMAT = "%s, %s";
 
-    @Value("volc_ak")
+    @Value("${volc.ak}")
     private String volcAk;
-    @Value("volc_sk")
+    @Value("${volc.sk}")
     private String volcSk;
-
-
-    public static void main(String[] args) {
-        String prompt = "full body, A front-facing photo featuring two asia men. a men on the left with long black hair, the other men on the right with no hair, captured in a stable and focused manner, emphasizing clear facial expressions and detailed hair textures.";
-        String roleAFace = "https://ts1.cn.mm.bing.net/th/id/R-C.301756a216f6dfd7fe0c32f5853383d6?rik=mtPhRcVGwG%2bTpA&riu=http%3a%2f%2fpic3.nipic.com%2f20090624%2f2896835_221801012_2.jpg&ehk=GbYy8yUcdyKNn4r%2bdWuaHECPuw5LaiIsJamyo%2bmeEMI%3d&risl=&pid=ImgRaw&r=0";
-        String roleBFace = "https://ts1.cn.mm.bing.net/th/id/R-C.c2932d6db8ff8f3b91e437ee0b6cc789?rik=z9EFf8Gr7DdObw&riu=http%3a%2f%2fwww.yzwhcm.com%2fuFile%2f4708%2fproduct%2f2012824192042200.jpg&ehk=7NxOExcVLi0eVFJUWvWG9zUWp8VuHa8XiOBn318UkVs%3d&risl=&pid=ImgRaw&r=0";
-//        String roleAFace = "https://obj.pipi.cn/basicdatacrawler/basicdatacrawler//54ecded7c7e923b12dc7ed44268d926f106d4.png?imageMogr2/thumbnail/2500x2500%3E";
-        VolcImageServiceImpl volcImageService = new VolcImageServiceImpl();
-//        volcImageService.generateAnimeImageV1_3("anime, ancient Chinese", prompt);
-//        volcImageService.generateImageV1_4(prompt);
-        List<String> roleFaces = new ArrayList<>(Arrays.asList(roleAFace, roleBFace));
-//        String modelImage = "https://p26-aiop-sign.byteimg.com/tos-cn-i-vuqhorh59i/2024071714240208A2397ED4CE13948863/output-image-0~tplv-vuqhorh59i-image.jpeg?rk3s=7f9e702d&x-expires=1721283849&x-signature=LJIP7o%2FSpUbwjYmgnBHXWp62nT4%3D";
-//        String base64 = volcImageService.faceSwap(modelImage, roleFaces);
-//        System.out.println(base64);
-        volcImageService.generateImageAndSwapFace(prompt, roleFaces);
-    }
 
     public void generateImageAndSwapFace(String prompt, List<String> roleFaces) {
 //        String image = generateAnimeImageV1_3("by Makoto Shinkai", prompt);
@@ -73,6 +62,9 @@ public class VolcImageServiceImpl implements IVolcImageService {
         IVisualService visualService = buildIVisualService();
         JSONObject req = new JSONObject();
         req.put("req_key", "high_aes");
+        if (StringUtils.isEmpty(style)) {
+            style = Strings.EMPTY;
+        }
         req.put("prompt", String.format(ANIME_PROMPT_FORMAT, style, prompt));
         req.put("model_version", "anime_v1.3.1");
         req.put("width", 768);
@@ -84,7 +76,7 @@ public class VolcImageServiceImpl implements IVolcImageService {
 //        req.put("binary_data_base64",binaryDataBase64);
         try {
             VisualHighAesSmartDrawingResponse response = visualService.visualHighAesSmartDrawing(req);
-            System.out.println(JSON.toJSONString(response));
+//            System.out.println(JSON.toJSONString(response));
             return response.getData().getImageUrls().get(0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,11 +100,15 @@ public class VolcImageServiceImpl implements IVolcImageService {
         req.put("model_version", "general_v1.4");
         req.put("width", 768);
         req.put("height", 432);
-        req.put("return_url", true);
+//        req.put("scale", 15);
+//        req.put("return_url", true);
+        req.put("ddim_steps", 30);
+//        req.put("use_rephraser", false);
         try {
             VisualHighAesSmartDrawingResponse response = visualService.visualHighAesSmartDrawing(req);
-            System.out.println(JSON.toJSONString(response));
-            return response.getData().getImageUrls().get(0);
+//            System.out.println(JSON.toJSONString(response));
+//            return response.getData().getImageUrls().get(0);
+            return response.getData().getBinaryDataBase64().get(0);
         } catch (Exception e) {
             e.printStackTrace();
             throw new BusinessException("火山V1.4生图失败");
@@ -158,11 +154,74 @@ public class VolcImageServiceImpl implements IVolcImageService {
         req.setSourceSimilarity("1");
         try {
             VisualFaceSwapV2Response response = visualService.faceSwapV2(req);
-            System.out.println(JSON.toJSONString(response));
+//            System.out.println(JSON.toJSONString(response));
             return response.getData().getBinaryDataBase64().get(0);
         } catch (Exception e) {
             e.printStackTrace();
             throw new BusinessException("火山人脸融合失败");
+        }
+    }
+
+    /**
+     * 智能扩图
+     *
+     * @param prompt
+     * @param imgUrl
+     * @return
+     */
+    public String outPainting(String prompt, String imgUrl) {
+        IVisualService visualService = buildIVisualService();
+        VisualImg2ImgOutpaintingRequest req = new VisualImg2ImgOutpaintingRequest();
+        req.setReqKey("i2i_outpainting");
+//        ArrayList<String> binaryDataBase64 = new ArrayList<String>();
+//        binaryDataBase64.add("imageBase64");
+//        binaryDataBase64.add("imageBase64");
+//        req.setBinary_data_base64(binaryDataBase64);
+        ArrayList<String> imgList = new ArrayList<>(Collections.singletonList(imgUrl));
+        req.setImageUrls(imgList);
+        req.setCustomPrompt(prompt);
+        req.setSteps(30);
+        req.setStrength(0.8);
+        req.setRight(7.0);
+        req.setSeed(-1);
+        req.setTop(1);
+        req.setBottom(1);
+        req.setLeft(1);
+        req.setRight(1);
+        req.setMax_height(1080);
+        req.setMax_width(1920);
+        try {
+            VisualImg2ImgOutpaintingResponse response = visualService.Img2ImgOutpainting(req);
+//            System.out.println(JSON.toJSONString(response.toString()));
+            return response.getData().getBinaryDataBase64().get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new BusinessException("火山智能扩图失败");
+        }
+    }
+
+    /**
+     * 图片增强
+     *
+     * @param base64
+     * @return
+     */
+    public String enhancePhoto(String base64) {
+        IVisualService visualService = buildIVisualService();
+        VisualEnhancePhotoV2Request req = new VisualEnhancePhotoV2Request();
+        req.setReqKey("lens_lqir");
+
+        ArrayList<String> binaryData = new ArrayList<>();
+        binaryData.add(base64);
+        req.setBinaryDataBase64(binaryData);
+        req.setEnableHdr(true);
+//        req.setEnableWb(true);
+        try {
+            VisualEnhancePhotoV2Response response = visualService.enhancePhotoV2(req);
+            return response.getData().getBinaryDataBase64().get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new BusinessException("火山图片增强失败");
         }
     }
 

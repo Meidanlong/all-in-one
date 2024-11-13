@@ -4,5 +4,10 @@ spring:
   application:
     name: mdl-aigc
 
-volc_ak:
-volc_sk:
+volc:
+  ak:
+  sk:
+
+hunyuan:
+  secret_id:
+  secret_key:
