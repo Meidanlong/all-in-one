@@ -15,7 +15,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * TODO
+ * CSV/Excel工具类
+ *
+ * CSV需保证一列内无英文逗号，否则解析出错
  *
  * @author meidanlong
  * @date 2024年12月05日
@@ -51,84 +53,12 @@ public class ExcelUtil {
                         jsonObject.put(headers.get(i), "");
                     }
                 }
-
                 jsonArray.add(jsonObject);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return jsonArray;
-    }
-
-    public static JSONArray subtractJsonArrays(JSONArray whiteJson, JSONArray applyJson) {
-        Set<String> applyUserIds = new HashSet<>();
-        for (int i = 0; i < applyJson.size(); i++) {
-            JSONObject applyObj = applyJson.getJSONObject(i);
-            applyUserIds.add(applyObj.getString("user_id"));
-        }
-
-        JSONArray resultArray = new JSONArray();
-        for (int i = 0; i < whiteJson.size(); i++) {
-            JSONObject whiteObj = whiteJson.getJSONObject(i);
-            String myUserId = whiteObj.getString("my_user_id");
-            if (!applyUserIds.contains(myUserId) && !myUserId.equals("0")) {
-                resultArray.add(whiteObj);
-            }
-        }
-
-        return resultArray;
-    }
-
-    public static String generateBatchInsertSQL(JSONArray result) {
-        StringBuilder sql = new StringBuilder();
-        sql.append("INSERT INTO agi_test_apply_record (")
-                .append("user_id, phone, career, use_purpose, team_name, ")
-                .append("influential_personal_account, passed, deleted, create_time, update_time")
-                .append(") VALUES ");
-
-        for (int i = 0; i < result.size(); i++) {
-            JSONObject obj = result.getJSONObject(i);
-            Long userId = obj.getLong("my_user_id");
-            // 跳过 user_id 为 '0' 的记录
-            if (userId <= 0) {
-                continue;
-            }
-            String name = obj.getString("name").replace(",", "");
-            sql.append("(")
-                    .append(userId).append(", ")
-                    .append("AES_ENCRYPT('").append(obj.getString("phone")).append("', 'soda'), ")
-                    .append("'影视导演、编剧', ")
-                    .append("'制作分镜/故事板，提升项目各方沟通效率', ")
-                    .append("'").append(name).append("', ")
-                    .append("'原白名单用户', ")
-                    .append("1, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP")
-                    .append(")");
-
-            if (i < result.size() - 1) {
-                sql.append(", ");
-            }
-        }
-        sql.append(";");
-
-        return sql.toString();
-    }
-
-    public static void main(String[] args) {
-        JSONArray whiteJson = ExcelUtil.readCsv("1733386279014.csv");
-        JSONArray applyJson = ExcelUtil.readCsv("1733389294447.csv");
-
-        JSONArray result = subtractJsonArrays(whiteJson, applyJson);
-//        System.out.println(result.size());
-//        System.out.println(JSON.toJSONString(result, true));
-        List<String> nameList = result.stream().map(r -> {
-            JSONObject js = (JSONObject) r;
-            return js.getString("name");
-        }).collect(Collectors.toList());
-        System.out.println(JSON.toJSONString(nameList));
-        String batchInsertSQL = generateBatchInsertSQL(result);
-        System.out.println(batchInsertSQL);
     }
 
 }
