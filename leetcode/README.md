@@ -7,15 +7,11 @@ $!velocityTool.camelCaseName(${question.titleSlug})
 ## 代码模版
 ```text
 package com.meidl.leetcode.editor.cn;
+import com.meidl.leetcode.editor.cn.helper.ListNode;
+import com.meidl.leetcode.editor.cn.helper.TreeNode;
+import java.util.List;
 
-// [${question.frontendQuestionId}] ${question.title}
-public class $!velocityTool.camelCaseName(${question.titleSlug}){
-  public static void main(String[] args) {
-       Solution solution = new $!velocityTool.camelCaseName(${question.titleSlug})().new Solution();
-  }
-    
 ${question.code}
-}
 ```
 
 ### 模版常量

@@ -35,6 +35,19 @@
             <version>1.9.41</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>1.5.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>ffmpeg-platform</artifactId>
+            <version>4.1-1.4.4</version>
+        </dependency>
+
     </dependencies>
 
 </project>

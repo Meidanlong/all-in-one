@@ -30,7 +30,6 @@ public class RedisPool {
 
         config.setBlockWhenExhausted(true);//连接耗尽的时候是否阻塞，false会抛出异常，true会阻塞直到超时，默认为true
 
-
         pool = new JedisPool(config,redisIp,redisPort,1000*2);
 
     }
