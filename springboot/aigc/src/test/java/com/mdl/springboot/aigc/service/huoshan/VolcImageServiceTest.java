@@ -2,12 +2,15 @@ package com.mdl.springboot.aigc.service.huoshan;
 
 import com.mdl.common.utils.FileUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.StopWatch;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * TODO
@@ -63,5 +66,41 @@ public class VolcImageServiceTest {
 //        String base64 = volcImageService.faceSwap(modelImage, roleFaces);
 //        System.out.println(base64);
 //        volcImageService.generateImageAndSwapFace(prompt, roleFaces);
+    }
+
+    @Test
+    public void img2imgTest() throws InterruptedException {
+//        String oriImg = "https://p0.beebo.media/beebo_edu/public/image/06674024b5a77b9b977cd5856f027ab5312f5.png";
+        String oriImg = "https://p0.beebo.media/beebo_edu/public/image/3c6fe12c5c1e1b5ba40b9ad8bed12868c6f73.jpg";
+        String prompt = "Chibi figurine blind box, 1:1 square, full-body . OUTFIT: Cute lab coat (white, pocketed), layered over navy blue traditional collar shirt, tiny goggles (on forehead). Enclosed in flat thin tray (1:1, rounded corners, clear top, light beige back). \n" +
+                "Accessories (3 science - themed, neatly arranged inside the closed box, fully displayed, no bugs, no text): \n" +
+                "Plush beaker (blue liquid), \n" +
+                "Mini alcohol lamp charm (gold base), \n" +
+                "Small magnifying glass (silver rim), \n" +
+                "Light beige gradient, Pixar 3D, hand - crafted. Vibe: “tiny Middle Eastern science explorer toy pack”";
+
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start("img2img");
+        String taskId = volcImageService.featureExtractionSubmitByDreamO(oriImg, prompt);
+
+        String imgUrl = null;
+        if (StringUtils.isNotBlank(taskId)) {
+            while (StringUtils.isEmpty(imgUrl)) {
+                TimeUnit.SECONDS.sleep(1);
+                imgUrl = volcImageService.featureExtractionQueryByDreamO(taskId);
+            }
+        }
+
+        stopWatch.stop();
+        System.out.println(stopWatch.prettyPrint());
+        System.out.println("oriImg: " + oriImg);
+        System.out.println("result: " + imgUrl);
+
+    }
+
+    @Test
+    public void img2imgQueryTest() {
+        String taskId = "1090324355403169676";
+        volcImageService.featureExtractionQueryByDreamO(taskId);
     }
 }

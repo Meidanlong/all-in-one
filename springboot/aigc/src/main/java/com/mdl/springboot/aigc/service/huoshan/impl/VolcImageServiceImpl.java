@@ -1,5 +1,6 @@
 package com.mdl.springboot.aigc.service.huoshan.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mdl.common.domain.BusinessException;
 import com.mdl.springboot.aigc.service.huoshan.IVolcImageService;
@@ -16,6 +17,7 @@ import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -230,5 +232,71 @@ public class VolcImageServiceImpl implements IVolcImageService {
         visualService.setAccessKey(volcAk);
         visualService.setSecretKey(volcSk);
         return visualService;
+    }
+
+    @Override
+    public String imageEditByCv(String oriImg, String prompt) {
+        IVisualService visualService = buildIVisualService();
+        JSONObject req = new JSONObject();
+        req.put("req_key", "high_aes_ip_v20");
+        req.put("image_urls", Collections.singletonList(oriImg));
+        req.put("prompt", prompt);
+        req.put("return_url", true);
+        // 图片反推
+        req.put("desc_pushback", true);
+        // 生图步数
+        req.put("ddim_steps", 30);
+        try {
+            Object response = visualService.cvSync2AsyncSubmitTask(req);
+            if (ObjectUtils.isEmpty(response)) {
+                throw new RuntimeException("通用2.0-角色特征保持请求失败，响应为空");
+            }
+            System.out.println(JSON.toJSONString(response));
+            JSONObject responseJson = (JSONObject) response;
+            return responseJson.getJSONObject("data").getJSONArray("image_urls").getString(0);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public String featureExtractionSubmitByDreamO(String oriImg, String prompt) {
+        IVisualService visualService = buildIVisualService();
+        JSONObject req = new JSONObject();
+        req.put("req_key", "seed3l_single_ip");
+        req.put("image_urls", Collections.singletonList(oriImg));
+        req.put("prompt", prompt);
+        // 对prompt进行优化
+        req.put("use_rephraser", true);
+
+        try {
+            Object response = visualService.cvProcess(req);
+            System.out.println(JSON.toJSONString(response));
+            JSONObject responseJson = (JSONObject) response;
+            return responseJson.getJSONObject("data").getString("task_id");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public String featureExtractionQueryByDreamO(String taskId) {
+        IVisualService visualService = buildIVisualService();
+        JSONObject req = new JSONObject();
+        req.put("req_key", "seed3l_single_ip");
+        req.put("task_id", taskId);
+        JSONObject reqJson = new JSONObject();
+        reqJson.put("return_url", true);
+        req.put("req_json", JSON.toJSONString(reqJson));
+
+        try {
+            Object response = visualService.cvSync2AsyncGetResult(req);
+            System.out.println(JSON.toJSONString(response));
+            JSONObject responseJson = (JSONObject) response;
+            return responseJson.getJSONObject("data").getJSONArray("image_urls").getString(0);
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+        }
+        return null;
     }
 }

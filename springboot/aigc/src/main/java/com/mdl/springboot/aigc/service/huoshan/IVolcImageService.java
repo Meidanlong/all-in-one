@@ -3,7 +3,7 @@ package com.mdl.springboot.aigc.service.huoshan;
 import java.util.List;
 
 /**
- * TODO
+ * 火山图像处理接口
  *
  * @author meidanlong
  * @date 2024年07月17日
@@ -61,4 +61,35 @@ public interface IVolcImageService {
      * @return
      */
     String enhancePhoto(String base64);
+
+    /**
+     * 通用2.0-角色特征保持
+     * https://www.volcengine.com/docs/6791/1361423
+     *
+     * @param oriImg
+     * @param prompt
+     * @return
+     */
+    String imageEditByCv(String oriImg, String prompt);
+
+    /**
+     * 特征提取
+     * 图生图3.0-角色特征保持DreamO
+     * https://www.volcengine.com/docs/85128/1722713
+     *
+     * @param oriImg
+     * @param prompt
+     * @return
+     */
+    String featureExtractionSubmitByDreamO(String oriImg, String prompt);
+
+    /**
+     * 特征提取任务轮询
+     * 图生图3.0-角色特征保持DreamO
+     * https://www.volcengine.com/docs/85128/1722713
+     *
+     * @param taskId
+     * @return
+     */
+    String featureExtractionQueryByDreamO(String taskId);
 }
