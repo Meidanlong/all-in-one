@@ -1,5 +1,6 @@
 package com.mdl.springai.mcp.client.service;
 
+import com.mdl.springai.mcp.client.domain.dto.ChatRequestDTO;
 import reactor.core.publisher.Flux;
 
 /**
@@ -26,4 +27,11 @@ public interface IChatService {
      * @return
      */
     Flux<String> chatStream(String prompt);
+
+    /**
+     * 聊天SSE发送
+     *
+     * @param chatRequestDTO
+     */
+    void chatSSE(ChatRequestDTO chatRequestDTO);
 }
