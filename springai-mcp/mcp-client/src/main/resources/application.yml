@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: spring-ai-llm
+  profiles:
+    active: dev
+  ai:
+    openai:
+      api-key: ${API_KEY}
+      base-url: ${BASE_URL}
+      chat:
+        options:
+          model: ${MODEL}
+            #    mcp:
+            #      client:
+            #        enabled: true
+            #        name: spring-ai-llm
+            #        type: ASYNC
+            #        sse:
+            #          connections:
+            #            server1:
+            #              url: https://mcp.amap.com
+          #              sse-endpoint: /sse?key=09557e21174fff33be82c6cf0fa2cbcb
+#            server1:
+#              url: http://localhost:9060
+#              sse-endpoint: /sse
+#        stdio:
+#          servers-configuration: classpath:mcp-server.json
