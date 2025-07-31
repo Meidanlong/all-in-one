@@ -1,5 +1,7 @@
 package com.mdl.springai.mcp.client.service;
 
+import reactor.core.publisher.Flux;
+
 /**
  * 聊天服务
  *
@@ -16,4 +18,12 @@ public interface IChatService {
      * @return
      */
     String chat(String prompt);
+
+    /**
+     * 聊天流式
+     *
+     * @param prompt
+     * @return
+     */
+    Flux<String> chatStream(String prompt);
 }

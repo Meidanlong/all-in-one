@@ -6,6 +6,7 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 /**
  * 聊天服务实现
@@ -35,5 +36,10 @@ public class ChatServiceImpl implements IChatService {
     @Override
     public String chat(String prompt) {
         return chatClient.prompt(prompt).call().content();
+    }
+
+    @Override
+    public Flux<String> chatStream(String prompt) {
+        return chatClient.prompt(prompt).stream().content();
     }
 }
