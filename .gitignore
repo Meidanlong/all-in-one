@@ -3,7 +3,6 @@ HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-**/.env
 .env
 
 ### STS ###
