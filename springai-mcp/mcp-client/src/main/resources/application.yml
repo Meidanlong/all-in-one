@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-ai-llm
+    name: spring-ai-mcp-client
   profiles:
     active: dev
   ai:
@@ -11,3 +11,13 @@ spring:
         completions-path: ${COMPLETIONS_PATH}
         options:
           model: ${MODEL}
+    mcp:
+      client:
+        enabled: true
+        name: spring-ai-mcp-client-sse
+        type: ASYNC
+        sse:
+          connections:
+            my-mcp-server:
+              url: http://localhost:9060
+              sse-endpoint: /sse

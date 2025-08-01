@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.ai.tool.ToolCallbackProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
@@ -34,8 +36,9 @@ public class ChatServiceImpl implements IChatService {
 
     private final ChatClient chatClient;
 
-    public ChatServiceImpl(ChatClient.Builder chatClientBuilder, ChatMemory chatMemory) {
+    public ChatServiceImpl(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools, ChatMemory chatMemory) {
         this.chatClient = chatClientBuilder
+                .defaultToolCallbacks(tools)
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultSystem(systemPrompt)
                 .build();

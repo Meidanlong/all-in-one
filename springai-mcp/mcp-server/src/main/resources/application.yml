@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-ai-mcp-server
+  profiles:
+    active: dev
+  ai:
+    mcp:
+      server:
+        name: spring-ai-mcp-server-sse
+        version: 1.0.0
+        sse-endpoint: /sse
+        type: async

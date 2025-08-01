@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version: 1.0
  */
 @SpringBootApplication
-public class LlmApplication {
+public class McpClientApplication {
 
     public static void main(String[] args) {
 
@@ -21,6 +21,6 @@ public class LlmApplication {
         // 把.env文件中的变量设置到环境变量中
         dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
 
-        SpringApplication.run(LlmApplication.class, args);
+        SpringApplication.run(McpClientApplication.class, args);
     }
 }
