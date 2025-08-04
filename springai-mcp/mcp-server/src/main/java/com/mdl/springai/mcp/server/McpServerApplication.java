@@ -20,14 +20,4 @@ public class McpServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(McpServerApplication.class, args);
     }
-
-    /**
-     * 注册MCP工具
-     */
-    @Bean
-    public ToolCallbackProvider registMCPTools(DateTool dateTool) {
-        return MethodToolCallbackProvider.builder()
-                .toolObjects(dateTool)
-                .build();
-    }
 }

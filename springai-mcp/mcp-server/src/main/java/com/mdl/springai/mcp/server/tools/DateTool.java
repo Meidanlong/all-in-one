@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
  */
 @Slf4j
 @Component
-public class DateTool {
+public class DateTool implements McpTool{
 
     @Tool(description = "获得当前时间")
     public String getCurrentTime() {
