@@ -21,3 +21,15 @@ spring:
             my-mcp-server:
               url: http://localhost:9060
               sse-endpoint: /sse
+
+# 火山引擎TTS配置
+volcano:
+  tts:
+    access-key: ${VOLCANO_ACCESS_KEY:}
+    secret-key: ${VOLCANO_SECRET_KEY:}
+    region: ${VOLCANO_REGION:cn-north-1}
+    service: ${VOLCANO_SERVICE:tts}
+    host: ${VOLCANO_HOST:open.volcengineapi.com}
+    model: ${VOLCANO_MODEL:douyin-tts-pro}
+    voice: ${VOLCANO_VOICE:zh_female_qingxin}
+    use-websocket: ${VOLCANO_USE_WEBSOCKET:false}
