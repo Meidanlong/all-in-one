@@ -21,3 +21,6 @@ spring:
             my-mcp-server:
               url: http://localhost:9060
               sse-endpoint: /sse
+            amap-mcp-server:
+              url: https://mcp.amap.com
+              sse-endpoint: /sse?key=083de0464b2f8fd5127a34fb668c0477
