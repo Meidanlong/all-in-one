@@ -20,12 +20,11 @@ public class DateTool {
 
     @Tool(description = "获得当前时间")
     public String getCurrentTime() {
-
-        log.info("========== 调用MCP工具：getCurrentTime() ==========");
-
+        log.info("========== getCurrentTime==========");
         String currentTime = String.format("当前的时间是 %s",
                 LocalDateTime.now().format(
                         DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        log.info("========== getCurrentTime currentTime:{}==========", currentTime);
         return currentTime;
     }
 }

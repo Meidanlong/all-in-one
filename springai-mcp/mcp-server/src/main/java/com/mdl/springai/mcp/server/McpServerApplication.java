@@ -1,6 +1,7 @@
 package com.mdl.springai.mcp.server;
 
 import com.mdl.springai.mcp.server.tools.DateTool;
+import com.mdl.springai.mcp.server.tools.MovieTool;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
@@ -25,9 +26,9 @@ public class McpServerApplication {
      * 注册MCP工具
      */
     @Bean
-    public ToolCallbackProvider registMCPTools(DateTool dateTool) {
+    public ToolCallbackProvider registMCPTools(DateTool dateTool, MovieTool movieTool) {
         return MethodToolCallbackProvider.builder()
-                .toolObjects(dateTool)
+                .toolObjects(dateTool, movieTool)
                 .build();
     }
 }
