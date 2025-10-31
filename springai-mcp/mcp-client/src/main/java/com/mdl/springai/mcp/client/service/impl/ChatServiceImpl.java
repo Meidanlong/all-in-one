@@ -9,6 +9,7 @@ import com.mdl.springai.mcp.client.utils.SSEServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,14 @@ public class ChatServiceImpl implements IChatService {
     public ChatServiceImpl(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools, ChatMemory chatMemory) {
         this.chatClient = chatClientBuilder
                 .defaultToolCallbacks(tools)
-                .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
+                .defaultAdvisors(
+                        MessageChatMemoryAdvisor.builder(chatMemory)
+                                .build(),
+                        SimpleLoggerAdvisor.builder()
+                                .requestToString(request -> String.format("🚀 Chat Request: %s", request.toString()))
+                                .responseToString(response -> String.format("✅ Chat Response: %s", response.toString()))
+                                .build()
+                )
                 .defaultSystem(systemPrompt)
                 .build();
     }
