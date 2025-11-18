@@ -1,6 +1,7 @@
 package com.mdl.springai.mcp.client.service.impl;
 
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import com.mdl.springai.mcp.client.domain.dto.ChatRequestDTO;
 import com.mdl.springai.mcp.client.domain.dto.ChatResponseDTO;
 import com.mdl.springai.mcp.client.domain.enums.SSEMsgTypeEnum;
@@ -30,10 +31,7 @@ import java.util.stream.Collectors;
 @Service
 public class ChatServiceImpl implements IChatService {
 
-    private final String systemPrompt =
-            """
-                    你是一个非常聪明的人工智能助手，可以帮我解决很多问题，我为你取一个名字，你的名字叫'一休'。
-                    """;
+    private final String systemPrompt = "你是一个非常聪明的人工智能助手，可以帮我解决很多问题，我为你取一个名字，你的名字叫'一休'。";
 
     private final ChatClient chatClient;
 
@@ -44,8 +42,8 @@ public class ChatServiceImpl implements IChatService {
                         MessageChatMemoryAdvisor.builder(chatMemory)
                                 .build(),
                         SimpleLoggerAdvisor.builder()
-                                .requestToString(request -> String.format("🚀 Chat Request: %s", request.toString()))
-                                .responseToString(response -> String.format("✅ Chat Response: %s", response.toString()))
+                                .requestToString(request -> String.format("🚀 Chat Request: %s", JSON.toJSONString(request)))
+                                .responseToString(response -> String.format("✅ Chat Response: %s", JSON.toJSONString(response)))
                                 .build()
                 )
                 .defaultSystem(systemPrompt)

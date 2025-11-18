@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        #messages {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #eee;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .sent {
+            background-color: #e3f2fd;
+            text-align: right;
+        }
+
+        .received {
+            background-color: #f3e5f5;
+        }
+    </style>
+</head>
+<body>
+<h1>MCP WebSocket测试页面</h1>
+
+<div class="container">
+    <h2>连接控制</h2>
+    <input type="text" id="serverUrl" placeholder="WebSocket服务器地址" value="ws://localhost:9060/mcp/ws" size="50">
+    <button onclick="connect()">连接</button>
+    <button onclick="disconnect()">断开连接</button>
+    <div>连接状态: <span id="connectionStatus">未连接</span></div>
+</div>
+
+<div class="container">
+    <h2>消息发送</h2>
+    <input type="text" id="businessId" placeholder="业务方标识" value="test">
+    <input type="text" id="messageData" placeholder="消息内容" value="Hello WebSocket">
+    <button onclick="sendMessage()">发送消息</button>
+</div>
+
+<div class="container">
+    <h2>消息记录</h2>
+    <div id="messages"></div>
+</div>
+
+<script>
+    let socket = null;
+
+    function connect() {
+        const url = document.getElementById('serverUrl').value;
+        socket = new WebSocket(url);
+
+        socket.onopen = function (event) {
+            document.getElementById('connectionStatus').textContent = '已连接';
+            addMessage('系统', 'WebSocket连接已建立', 'received');
+        };
+
+        socket.onmessage = function (event) {
+            const message = JSON.parse(event.data);
+            addMessage(message.businessId, message.data, 'received');
+        };
+
+        socket.onclose = function (event) {
+            document.getElementById('connectionStatus').textContent = '已断开';
+            addMessage('系统', 'WebSocket连接已断开', 'received');
+        };
+
+        socket.onerror = function (error) {
+            addMessage('错误', 'WebSocket发生错误: ' + error, 'received');
+        };
+    }
+
+    function disconnect() {
+        if (socket) {
+            socket.close();
+        }
+    }
+
+    function sendMessage() {
+        if (!socket || socket.readyState !== WebSocket.OPEN) {
+            alert('请先建立WebSocket连接');
+            return;
+        }
+
+        const businessId = document.getElementById('businessId').value;
+        const data = document.getElementById('messageData').value;
+
+        const message = {
+            businessId: businessId,
+            data: data
+        };
+
+        socket.send(JSON.stringify(message));
+        addMessage(businessId, data, 'sent');
+    }
+
+    function addMessage(sender, message, type) {
+        const messagesDiv = document.getElementById('messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message ' + type;
+        messageDiv.innerHTML = '<strong>' + sender + ':</strong> ' + message + ' <small>(' + new Date().toLocaleTimeString() + ')</small>';
+        messagesDiv.appendChild(messageDiv);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+</script>
+</body>
+</html>
+

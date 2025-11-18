@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字人语音对话系统</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            color: #4a69bd;
+            margin-top: 0;
+        }
+
+        .instructions {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+
+        .instructions ol {
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🤖 数字人语音对话系统</h1>
+    <p class="description">
+        欢迎使用基于Coze和腾讯云数智人技术的智能语音对话系统。<br>
+        通过语音与AI数字人进行实时互动，体验下一代人机交互方式。
+    </p>
+
+    <div class="features">
+        <div class="feature">
+            <h3>🎤 语音识别</h3>
+            <p>实时语音采集与识别，准确理解用户意图</p>
+        </div>
+        <div class="feature">
+            <h3>💬 智能对话</h3>
+            <p>基于大语言模型的智能对话引擎</p>
+        </div>
+        <div class="feature">
+            <h3>🎭 数字人驱动</h3>
+            <p>腾讯云数智人技术驱动的3D数字人</p>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>使用说明：</h3>
+        <ol>
+            <li>点击下方按钮进入语音对话界面</li>
+            <li>允许浏览器访问您的麦克风</li>
+            <li>点击"开始录音"按钮开始对话</li>
+            <li>说话完毕后点击"停止录音"等待回复</li>
+            <li>系统将通过数字人形象进行语音和动画回复</li>
+        </ol>
+    </div>
+
+    <button class="button" onclick="enterApp()">进入语音对话系统</button>
+
+    <div class="footer">
+        <p>技术支持：Coze + 腾讯云数智人 | 系统版本：v1.0</p>
+    </div>
+</div>
+
+<script>
+    function enterApp() {
+        // 跳转到Vue应用页面
+        window.location.href = '/app';
+    }
+
+    // 检查浏览器是否支持所需功能
+    function checkBrowserSupport() {
+        if (!navigator.mediaDevices || !window.WebSocket) {
+            alert('您的浏览器不支持语音对话功能，请使用最新版Chrome、Firefox或Edge浏览器。');
+        }
+    }
+
+    // 页面加载完成后检查浏览器支持
+    window.addEventListener('load', checkBrowserSupport);
+</script>
+</body>
+</html>
+

@@ -15,7 +15,7 @@
         <module>leetcode</module>
         <module>springboot</module>
         <module>springcloud-alibaba</module>
-        <module>springai-mcp</module>
+        <!--        <module>springai-mcp</module>-->
     </modules>
 
     <properties>
