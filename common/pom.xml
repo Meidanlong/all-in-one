@@ -18,7 +18,7 @@
         <javax-validation.version>2.0.2</javax-validation.version>
         <joda-time.version>2.10.13</joda-time.version>
         <httpcore.version>4.4.10</httpcore.version>
-        <httpclient.version>4.5.6</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <fastjson.version>1.2.69</fastjson.version>
     </properties>
 
